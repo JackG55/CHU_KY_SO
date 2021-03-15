@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
-namespace Quan_ly_VB_Chu_ky_so
+namespace WindowsFormsApp1
 {
-    public partial class Form1 : DevExpress.XtraEditors.XtraForm
+    public partial class Dang_nhap : DevExpress.XtraEditors.XtraForm
     {
-        public Form1()
+        public Dang_nhap()
         {
             InitializeComponent();
         }

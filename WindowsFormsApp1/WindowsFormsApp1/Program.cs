@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.UserSkins;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
 
-namespace Quan_ly_VB_Chu_ky_so
+namespace WindowsFormsApp1
 {
     static class Program
     {
@@ -18,8 +16,6 @@ namespace Quan_ly_VB_Chu_ky_so
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            BonusSkins.Register();
             Application.Run(new Form1());
         }
     }
