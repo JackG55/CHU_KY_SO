@@ -8,6 +8,7 @@ namespace WindowsFormsApp1.SignD
 {
     static class RSA
     {
+        // hash function use sha256
          public static byte[] getHash(string inputString)
         {
             using (HashAlgorithm algorithm = SHA256.Create())
