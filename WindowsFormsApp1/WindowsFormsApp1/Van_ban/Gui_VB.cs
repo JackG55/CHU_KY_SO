@@ -25,11 +25,7 @@ namespace WindowsFormsApp1.Van_ban
 
         private void bt_chon_file_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                axAcroPDF1.src = openFileDialog.FileName;
-            }    
+           
         }
     }
 }

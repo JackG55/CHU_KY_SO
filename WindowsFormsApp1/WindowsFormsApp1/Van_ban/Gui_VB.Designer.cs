@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gui_VB));
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_dong = new System.Windows.Forms.Button();
             this.bt_ktra_ten = new System.Windows.Forms.Button();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_gui = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.bt_chon_file = new System.Windows.Forms.Button();
             this.tb_dinh_kem = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_tieu_de = new DevExpress.XtraEditors.TextEdit();
@@ -43,9 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_van_ban = new System.Windows.Forms.Panel();
-            this.bt_chon_file = new System.Windows.Forms.Button();
             this.bt_ky = new System.Windows.Forms.Button();
-            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
+            this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_dinh_kem.Properties)).BeginInit();
@@ -53,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tb_ten.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel_van_ban.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,6 +123,16 @@
             this.panel3.Size = new System.Drawing.Size(993, 155);
             this.panel3.TabIndex = 2;
             // 
+            // bt_chon_file
+            // 
+            this.bt_chon_file.Location = new System.Drawing.Point(707, 108);
+            this.bt_chon_file.Name = "bt_chon_file";
+            this.bt_chon_file.Size = new System.Drawing.Size(110, 38);
+            this.bt_chon_file.TabIndex = 6;
+            this.bt_chon_file.Text = "Chọn file";
+            this.bt_chon_file.UseVisualStyleBackColor = true;
+            this.bt_chon_file.Click += new System.EventHandler(this.bt_chon_file_Click);
+            // 
             // tb_dinh_kem
             // 
             this.tb_dinh_kem.Location = new System.Drawing.Point(103, 116);
@@ -186,23 +194,13 @@
             // 
             // panel_van_ban
             // 
-            this.panel_van_ban.Controls.Add(this.axAcroPDF1);
+            this.panel_van_ban.Controls.Add(this.pdfViewer1);
             this.panel_van_ban.Controls.Add(this.bt_ky);
             this.panel_van_ban.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_van_ban.Location = new System.Drawing.Point(0, 155);
             this.panel_van_ban.Name = "panel_van_ban";
             this.panel_van_ban.Size = new System.Drawing.Size(993, 467);
             this.panel_van_ban.TabIndex = 3;
-            // 
-            // bt_chon_file
-            // 
-            this.bt_chon_file.Location = new System.Drawing.Point(707, 108);
-            this.bt_chon_file.Name = "bt_chon_file";
-            this.bt_chon_file.Size = new System.Drawing.Size(110, 38);
-            this.bt_chon_file.TabIndex = 6;
-            this.bt_chon_file.Text = "Chọn file";
-            this.bt_chon_file.UseVisualStyleBackColor = true;
-            this.bt_chon_file.Click += new System.EventHandler(this.bt_chon_file_Click);
             // 
             // bt_ky
             // 
@@ -214,15 +212,13 @@
             this.bt_ky.UseVisualStyleBackColor = true;
             this.bt_ky.Visible = false;
             // 
-            // axAcroPDF1
+            // pdfViewer1
             // 
-            this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.axAcroPDF1.Enabled = true;
-            this.axAcroPDF1.Location = new System.Drawing.Point(0, 50);
-            this.axAcroPDF1.Name = "axAcroPDF1";
-            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(993, 417);
-            this.axAcroPDF1.TabIndex = 8;
+            this.pdfViewer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pdfViewer1.Location = new System.Drawing.Point(0, 68);
+            this.pdfViewer1.Name = "pdfViewer1";
+            this.pdfViewer1.Size = new System.Drawing.Size(993, 399);
+            this.pdfViewer1.TabIndex = 8;
             // 
             // Gui_VB
             // 
@@ -241,7 +237,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tb_ten.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel_van_ban.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,6 +259,6 @@
         private System.Windows.Forms.Button bt_gui;
         private System.Windows.Forms.Button bt_chon_file;
         private System.Windows.Forms.Button bt_ky;
-        private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+        private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
     }
 }
