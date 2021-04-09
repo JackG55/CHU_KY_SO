@@ -44,6 +44,8 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +59,10 @@
             this.barButtonItem2,
             this.bt_hop_thu_den,
             this.bt_tao_chu_ky_so,
-            this.bt_gui});
+            this.bt_gui,
+            this.barButtonItem3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -88,12 +91,14 @@
             // 
             this.bt_hop_thu_den.Caption = "Hộp thư đến";
             this.bt_hop_thu_den.Id = 3;
+            this.bt_hop_thu_den.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_hop_thu_den.ImageOptions.SvgImage")));
             this.bt_hop_thu_den.Name = "bt_hop_thu_den";
             // 
             // bt_tao_chu_ky_so
             // 
             this.bt_tao_chu_ky_so.Caption = "Tạo chữ ký số";
             this.bt_tao_chu_ky_so.Id = 4;
+            this.bt_tao_chu_ky_so.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_tao_chu_ky_so.ImageOptions.SvgImage")));
             this.bt_tao_chu_ky_so.Name = "bt_tao_chu_ky_so";
             this.bt_tao_chu_ky_so.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_tao_chu_ky_so_ItemClick);
             // 
@@ -101,6 +106,7 @@
             // 
             this.bt_gui.Caption = "Gửi thư";
             this.bt_gui.Id = 5;
+            this.bt_gui.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_gui.ImageOptions.SvgImage")));
             this.bt_gui.Name = "bt_gui";
             this.bt_gui.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_gui_ItemClick);
             // 
@@ -128,6 +134,7 @@
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ImageOptions.Image = global::WindowsFormsApp1.Properties.Resources.pngtree_vector_inbox_icon_png_image_3997347;
             this.ribbonPageGroup2.ItemLinks.Add(this.bt_hop_thu_den);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Văn bản";
@@ -141,7 +148,8 @@
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup5});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Quản lý chữ ký số";
             // 
@@ -164,6 +172,20 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(1401, 556);
             this.panel_main.TabIndex = 2;
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Quản lý chữ ký";
+            this.barButtonItem3.Id = 6;
+            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // Trang_chu
             // 
@@ -201,5 +223,7 @@
         private System.Windows.Forms.Panel panel_main;
         private DevExpress.XtraBars.BarButtonItem bt_gui;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }

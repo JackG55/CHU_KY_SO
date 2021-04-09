@@ -40,5 +40,10 @@ namespace WindowsFormsApp1
             Chu_ky m = new Chu_ky();
             m.ShowDialog();
         }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

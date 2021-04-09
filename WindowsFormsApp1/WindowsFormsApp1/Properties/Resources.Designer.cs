@@ -79,5 +79,25 @@ namespace WindowsFormsApp1.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_inbox_icon_png_image_3997347 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-vector-inbox-icon-png-image_3997347", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_inbox_icon_png_image_3997347__2_ {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-vector-inbox-icon-png-image_3997347 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
