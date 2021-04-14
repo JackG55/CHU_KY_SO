@@ -24,15 +24,18 @@ namespace WindowsFormsApp1
         {
             // hien panel Gui van ban
              Gui_VB m = new Gui_VB();
-             m.TopLevel = false;
+            // m.TopLevel = false;
 
-            //xoa cac control hien thoi
-            panel_main.Controls.Clear();
+            ////xoa cac control hien thoi
+            //panel_main.Controls.Clear();
 
-            panel_main.Controls.Add(m);
-            m.Dock = DockStyle.Fill;
-            m.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            m.Show();
+            //panel_main.Controls.Add(m);
+            //this.WindowState = FormWindowState.Maximized;
+            //m.Dock = DockStyle.Fill;
+            //m.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //m.WindowState = FormWindowState.Maximized;
+
+            m.ShowDialog();
         }
 
         private void bt_tao_chu_ky_so_ItemClick(object sender, ItemClickEventArgs e)

@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.radioBt_anh_va_thong_tin = new System.Windows.Forms.RadioButton();
-            this.radioBt_anh = new System.Windows.Forms.RadioButton();
             this.radioBt_thong_tin = new System.Windows.Forms.RadioButton();
+            this.radioBt_anh = new System.Windows.Forms.RadioButton();
+            this.radioBt_anh_va_thong_tin = new System.Windows.Forms.RadioButton();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_huy = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,29 +55,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(925, 554);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(34, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 45);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "QUẢN LÝ MẪU CHỮ KÝ";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(13, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên mẫu chữ ký:";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(158, 28);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(350, 22);
-            this.textEdit1.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -94,34 +71,16 @@
             this.groupBox1.Text = "Hiển thị chữ ký";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // panel2
+            // radioBt_thong_tin
             // 
-            this.panel2.Location = new System.Drawing.Point(541, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(314, 214);
-            this.panel2.TabIndex = 0;
-            // 
-            // radioGroup1
-            // 
-            this.radioGroup1.Location = new System.Drawing.Point(19, 35);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup1.Properties.Columns = 3;
-            this.radioGroup1.Size = new System.Drawing.Size(488, 150);
-            this.radioGroup1.TabIndex = 1;
-            // 
-            // radioBt_anh_va_thong_tin
-            // 
-            this.radioBt_anh_va_thong_tin.AutoSize = true;
-            this.radioBt_anh_va_thong_tin.Location = new System.Drawing.Point(46, 51);
-            this.radioBt_anh_va_thong_tin.Name = "radioBt_anh_va_thong_tin";
-            this.radioBt_anh_va_thong_tin.Size = new System.Drawing.Size(162, 21);
-            this.radioBt_anh_va_thong_tin.TabIndex = 2;
-            this.radioBt_anh_va_thong_tin.TabStop = true;
-            this.radioBt_anh_va_thong_tin.Text = "Hình ảnh và thông tin";
-            this.radioBt_anh_va_thong_tin.UseVisualStyleBackColor = true;
+            this.radioBt_thong_tin.AutoSize = true;
+            this.radioBt_thong_tin.Location = new System.Drawing.Point(46, 141);
+            this.radioBt_thong_tin.Name = "radioBt_thong_tin";
+            this.radioBt_thong_tin.Size = new System.Drawing.Size(88, 21);
+            this.radioBt_thong_tin.TabIndex = 4;
+            this.radioBt_thong_tin.TabStop = true;
+            this.radioBt_thong_tin.Text = "Thông tin";
+            this.radioBt_thong_tin.UseVisualStyleBackColor = true;
             // 
             // radioBt_anh
             // 
@@ -134,16 +93,58 @@
             this.radioBt_anh.Text = "Hình ảnh";
             this.radioBt_anh.UseVisualStyleBackColor = true;
             // 
-            // radioBt_thong_tin
+            // radioBt_anh_va_thong_tin
             // 
-            this.radioBt_thong_tin.AutoSize = true;
-            this.radioBt_thong_tin.Location = new System.Drawing.Point(46, 141);
-            this.radioBt_thong_tin.Name = "radioBt_thong_tin";
-            this.radioBt_thong_tin.Size = new System.Drawing.Size(88, 21);
-            this.radioBt_thong_tin.TabIndex = 4;
-            this.radioBt_thong_tin.TabStop = true;
-            this.radioBt_thong_tin.Text = "Thông tin";
-            this.radioBt_thong_tin.UseVisualStyleBackColor = true;
+            this.radioBt_anh_va_thong_tin.AutoSize = true;
+            this.radioBt_anh_va_thong_tin.Location = new System.Drawing.Point(46, 51);
+            this.radioBt_anh_va_thong_tin.Name = "radioBt_anh_va_thong_tin";
+            this.radioBt_anh_va_thong_tin.Size = new System.Drawing.Size(162, 21);
+            this.radioBt_anh_va_thong_tin.TabIndex = 2;
+            this.radioBt_anh_va_thong_tin.TabStop = true;
+            this.radioBt_anh_va_thong_tin.Text = "Hình ảnh và thông tin";
+            this.radioBt_anh_va_thong_tin.UseVisualStyleBackColor = true;
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Location = new System.Drawing.Point(19, 35);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.radioGroup1.Properties.Columns = 3;
+            this.radioGroup1.Size = new System.Drawing.Size(488, 150);
+            this.radioGroup1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(541, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(314, 214);
+            this.panel2.TabIndex = 0;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(158, 28);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(350, 22);
+            this.textEdit1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(13, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Tên mẫu chữ ký:";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(34, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 45);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "QUẢN LÝ MẪU CHỮ KÝ";
             // 
             // bt_luu
             // 
@@ -175,10 +176,10 @@
             this.Name = "Chu_ky";
             this.Text = "Chu_ky";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
