@@ -28,6 +28,9 @@ namespace WindowsFormsApp1.Chu_ky_so
             this.Close();
         }
 
-      
+        private void bt_ky_Click(object sender, EventArgs e)
+        {
+            //luu anh vao bien static
+        }
     }
 }

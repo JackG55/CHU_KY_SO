@@ -11,6 +11,9 @@ using DevExpress.XtraEditors;
 using System.IO;
 using DevExpress.Pdf;
 using WindowsFormsApp1.Chu_ky_so;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+
 
 namespace WindowsFormsApp1.Van_ban
 {
@@ -113,6 +116,26 @@ namespace WindowsFormsApp1.Van_ban
 
 
 
+        }
+
+
+
+        //ký mặc định -> lấy dữ liệu từ chữ ký 
+        private void bt_ky_so_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (Stream inputPdfStream = new FileStream(@"E:\Desktop\Assembly language for x86 processors  Kip R. Irvine. 6th ed.pdf", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream inputImageStream = new FileStream(@"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\hoc-vien-ki-thuat-quan-su-he-quan-su.jpg", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream outputPdfStream = new FileStream(@"E:\Desktop\Thuc_tap_CNTT\result.pdf", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                var reader = new PdfReader(inputPdfStream);
+                var stamper = new PdfStamper(reader, outputPdfStream);
+                var pdfContentByte = stamper.GetOverContent(1);
+
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(inputImageStream);
+                image.SetAbsolutePosition(100, 100);
+                pdfContentByte.AddImage(image);
+                stamper.Close();
+            }
         }
     }
 }

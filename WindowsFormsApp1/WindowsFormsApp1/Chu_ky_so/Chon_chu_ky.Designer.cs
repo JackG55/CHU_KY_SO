@@ -196,6 +196,7 @@
             this.bt_ky.TabIndex = 2;
             this.bt_ky.Text = "Ký số";
             this.bt_ky.UseVisualStyleBackColor = true;
+            this.bt_ky.Click += new System.EventHandler(this.bt_ky_Click);
             // 
             // bt_dong
             // 
