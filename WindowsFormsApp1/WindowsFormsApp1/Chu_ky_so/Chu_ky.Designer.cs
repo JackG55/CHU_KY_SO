@@ -40,10 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_huy = new System.Windows.Forms.Button();
+            this.pic_tong_hop = new DevExpress.XtraEditors.PictureEdit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_tong_hop.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +58,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(925, 554);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // groupBox1
             // 
@@ -103,6 +107,7 @@
             this.radioBt_anh_va_thong_tin.TabStop = true;
             this.radioBt_anh_va_thong_tin.Text = "Hình ảnh và thông tin";
             this.radioBt_anh_va_thong_tin.UseVisualStyleBackColor = true;
+            this.radioBt_anh_va_thong_tin.CheckedChanged += new System.EventHandler(this.radioBt_anh_va_thong_tin_CheckedChanged);
             // 
             // radioGroup1
             // 
@@ -118,9 +123,10 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(541, 22);
+            this.panel2.Controls.Add(this.pic_tong_hop);
+            this.panel2.Location = new System.Drawing.Point(532, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(314, 214);
+            this.panel2.Size = new System.Drawing.Size(323, 214);
             this.panel2.TabIndex = 0;
             // 
             // textEdit1
@@ -148,7 +154,7 @@
             // 
             // bt_luu
             // 
-            this.bt_luu.Location = new System.Drawing.Point(694, 647);
+            this.bt_luu.Location = new System.Drawing.Point(692, 650);
             this.bt_luu.Name = "bt_luu";
             this.bt_luu.Size = new System.Drawing.Size(86, 29);
             this.bt_luu.TabIndex = 2;
@@ -164,11 +170,20 @@
             this.bt_huy.Text = "Huỷ";
             this.bt_huy.UseVisualStyleBackColor = true;
             // 
+            // pic_tong_hop
+            // 
+            this.pic_tong_hop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic_tong_hop.Location = new System.Drawing.Point(0, 0);
+            this.pic_tong_hop.Name = "pic_tong_hop";
+            this.pic_tong_hop.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_tong_hop.Size = new System.Drawing.Size(321, 212);
+            this.pic_tong_hop.TabIndex = 0;
+            // 
             // Chu_ky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 700);
+            this.ClientSize = new System.Drawing.Size(993, 729);
             this.Controls.Add(this.bt_huy);
             this.Controls.Add(this.bt_luu);
             this.Controls.Add(this.label1);
@@ -179,7 +194,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_tong_hop.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,5 +215,6 @@
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private System.Windows.Forms.Button bt_luu;
         private System.Windows.Forms.Button bt_huy;
+        private DevExpress.XtraEditors.PictureEdit pic_tong_hop;
     }
 }

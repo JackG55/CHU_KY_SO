@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraPrinting.Native;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace WindowsFormsApp1.SignD
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 g.DrawImage(i1, 0, 0);
-                g.DrawImage(i2, i2.Width, 0);
+                g.DrawImage(i2, i1.Width, 0);
             }
             return bitmap;
         }
@@ -27,8 +28,9 @@ namespace WindowsFormsApp1.SignD
             {
                 
                 Font font = new Font("Bookman Old Style", 10);
-                graphics.FillRectangle(new SolidBrush(Color.WhiteSmoke), 0, 0, bmp.Width, bmp.Height);
-                graphics.DrawString(txt, font, new SolidBrush(Color.Black), 10, 20);
+                RectangleF a = new RectangleF(0, 0, bmp.Width, bmp.Height);
+                graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, bmp.Width, bmp.Height);
+                graphics.DrawString(txt, font, new SolidBrush(Color.Black), a);
                 graphics.Flush();
                 font.Dispose();
                 graphics.Dispose();

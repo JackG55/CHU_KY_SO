@@ -1,4 +1,4 @@
-﻿using Syncfusion.Pdf.Parsing;
+﻿//using Syncfusion.Pdf.Parsing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
