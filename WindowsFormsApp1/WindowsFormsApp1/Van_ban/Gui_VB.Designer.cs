@@ -124,6 +124,7 @@
             this.bt_dong.TabIndex = 3;
             this.bt_dong.Text = "ĐÓNG";
             this.bt_dong.UseVisualStyleBackColor = true;
+            this.bt_dong.Click += new System.EventHandler(this.bt_dong_Click);
             // 
             // bt_ktra_ten
             // 
