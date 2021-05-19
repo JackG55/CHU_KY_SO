@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.Van_ban
         bool mouseButtonPressed = false;
         PdfDocumentPosition startPosition;
         PdfDocumentPosition endPosition;
-        string fileName = null;
+        public string fileName = null;
 
         void pdfViewer1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -145,32 +145,38 @@ namespace WindowsFormsApp1.Van_ban
 
             //fileName = null;
             OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Pdf Files|*.pdf";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                
-
                 fileName = dlg.FileName;
+                FileInfo fileInfo = new FileInfo(fileName);
+                if (fileInfo.Extension == ".pdf" && fileName!= String.Empty)
+                {
+                    //load pdf
+                    pdfViewer1.LoadDocument(fileName);
+                    pdfViewer1.MouseDown += pdfViewer1_MouseDown;
+                    pdfViewer1.MouseMove += pdfViewer1_MouseMove;
+                    pdfViewer1.MouseUp += pdfViewer1_MouseUp;
+                    pdfViewer1.Paint += pdfViewer1_Paint;
+
+                    //hien thanh ribbon
+                    ribbon_pdf.Visible = true;
+
+                    //hien ten file dinh kem
+                    tb_dinh_kem.Visible = true;
+                    tb_dinh_kem.Text = fileName;
+                }   
+                else if(fileInfo.Extension == ".docx"|| fileInfo.Extension == ".pptx"|| fileInfo.Extension == ".xlsx")
+                {
+                    MessageBox.Show("Bạn cần phải chuyển thành file pdf trước","File không đúng định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Chuyen_doi m = new Chuyen_doi(fileName);
+                    m.Show();
+                }
+                else
+                {
+                    MessageBox.Show("File không đúng định dạng, vui lòng liên hệ quản lý", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-
-            //load file 
-            if(fileName != null)
-            {
-                //load pdf
-                pdfViewer1.LoadDocument(fileName);
-                pdfViewer1.MouseDown += pdfViewer1_MouseDown;
-                pdfViewer1.MouseMove += pdfViewer1_MouseMove;
-                pdfViewer1.MouseUp += pdfViewer1_MouseUp;
-                pdfViewer1.Paint += pdfViewer1_Paint;
-
-                //hien thanh ribbon
-                ribbon_pdf.Visible = true;
-
-                //hien ten file dinh kem
-                tb_dinh_kem.Visible = true;
-                tb_dinh_kem.Text = fileName;
-            }
-
-
 
 
         }
