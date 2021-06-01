@@ -29,32 +29,68 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTao_moi = new System.Windows.Forms.Button();
+            this.cbBoxTen_chu_ky = new System.Windows.Forms.ComboBox();
+            this.lbQuan_ly_mau_chu_ky = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioBt_thong_tin = new System.Windows.Forms.RadioButton();
             this.radioBt_anh = new System.Windows.Forms.RadioButton();
             this.radioBt_anh_va_thong_tin = new System.Windows.Forms.RadioButton();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tbTen_mau = new DevExpress.XtraEditors.TextEdit();
+            this.lb_Ten_mau = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_huy = new System.Windows.Forms.Button();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTen_mau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnTao_moi);
+            this.panel1.Controls.Add(this.cbBoxTen_chu_ky);
+            this.panel1.Controls.Add(this.lbQuan_ly_mau_chu_ky);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.textEdit1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.tbTen_mau);
+            this.panel1.Controls.Add(this.lb_Ten_mau);
             this.panel1.Location = new System.Drawing.Point(37, 66);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(925, 554);
             this.panel1.TabIndex = 0;
+            // 
+            // btnTao_moi
+            // 
+            this.btnTao_moi.Location = new System.Drawing.Point(557, 27);
+            this.btnTao_moi.Name = "btnTao_moi";
+            this.btnTao_moi.Size = new System.Drawing.Size(75, 23);
+            this.btnTao_moi.TabIndex = 7;
+            this.btnTao_moi.Text = "Tạo mới";
+            this.btnTao_moi.UseVisualStyleBackColor = true;
+            this.btnTao_moi.Click += new System.EventHandler(this.btnTao_moi_Click);
+            // 
+            // cbBoxTen_chu_ky
+            // 
+            this.cbBoxTen_chu_ky.FormattingEnabled = true;
+            this.cbBoxTen_chu_ky.Location = new System.Drawing.Point(170, 26);
+            this.cbBoxTen_chu_ky.Name = "cbBoxTen_chu_ky";
+            this.cbBoxTen_chu_ky.Size = new System.Drawing.Size(336, 24);
+            this.cbBoxTen_chu_ky.TabIndex = 6;
+            this.cbBoxTen_chu_ky.SelectedValueChanged += new System.EventHandler(this.cbBoxTen_chu_ky_SelectedValueChanged);
+            // 
+            // lbQuan_ly_mau_chu_ky
+            // 
+            this.lbQuan_ly_mau_chu_ky.Location = new System.Drawing.Point(13, 29);
+            this.lbQuan_ly_mau_chu_ky.Name = "lbQuan_ly_mau_chu_ky";
+            this.lbQuan_ly_mau_chu_ky.Size = new System.Drawing.Size(151, 25);
+            this.lbQuan_ly_mau_chu_ky.TabIndex = 5;
+            this.lbQuan_ly_mau_chu_ky.Text = "Quản lý mẫu chữ ký: ";
             // 
             // groupBox1
             // 
@@ -63,13 +99,12 @@
             this.groupBox1.Controls.Add(this.radioBt_anh_va_thong_tin);
             this.groupBox1.Controls.Add(this.radioGroup1);
             this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Location = new System.Drawing.Point(16, 82);
+            this.groupBox1.Location = new System.Drawing.Point(16, 188);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(874, 286);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hiển thị chữ ký";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // radioBt_thong_tin
             // 
@@ -118,25 +153,26 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureEdit1);
             this.panel2.Location = new System.Drawing.Point(541, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(314, 214);
             this.panel2.TabIndex = 0;
             // 
-            // textEdit1
+            // tbTen_mau
             // 
-            this.textEdit1.Location = new System.Drawing.Point(158, 28);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(350, 22);
-            this.textEdit1.TabIndex = 3;
+            this.tbTen_mau.Location = new System.Drawing.Point(156, 117);
+            this.tbTen_mau.Name = "tbTen_mau";
+            this.tbTen_mau.Size = new System.Drawing.Size(350, 22);
+            this.tbTen_mau.TabIndex = 3;
             // 
-            // label2
+            // lb_Ten_mau
             // 
-            this.label2.Location = new System.Drawing.Point(13, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên mẫu chữ ký:";
+            this.lb_Ten_mau.Location = new System.Drawing.Point(13, 120);
+            this.lb_Ten_mau.Name = "lb_Ten_mau";
+            this.lb_Ten_mau.Size = new System.Drawing.Size(122, 25);
+            this.lb_Ten_mau.TabIndex = 2;
+            this.lb_Ten_mau.Text = "Tên mẫu chữ ký:";
             // 
             // label1
             // 
@@ -154,6 +190,7 @@
             this.bt_luu.TabIndex = 2;
             this.bt_luu.Text = "Lưu";
             this.bt_luu.UseVisualStyleBackColor = true;
+            this.bt_luu.Click += new System.EventHandler(this.bt_luu_Click);
             // 
             // bt_huy
             // 
@@ -164,11 +201,20 @@
             this.bt_huy.Text = "Huỷ";
             this.bt_huy.UseVisualStyleBackColor = true;
             // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(153, 212);
+            this.pictureEdit1.TabIndex = 0;
+            // 
             // Chu_ky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 700);
+            this.ClientSize = new System.Drawing.Size(997, 700);
             this.Controls.Add(this.bt_huy);
             this.Controls.Add(this.bt_luu);
             this.Controls.Add(this.label1);
@@ -179,7 +225,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tbTen_mau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,8 +235,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.TextEdit tbTen_mau;
+        private System.Windows.Forms.Label lb_Ten_mau;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
@@ -198,5 +246,9 @@
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private System.Windows.Forms.Button bt_luu;
         private System.Windows.Forms.Button bt_huy;
+        private System.Windows.Forms.Label lbQuan_ly_mau_chu_ky;
+        private System.Windows.Forms.ComboBox cbBoxTen_chu_ky;
+        private System.Windows.Forms.Button btnTao_moi;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }
