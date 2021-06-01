@@ -29,11 +29,61 @@ namespace WindowsFormsApp1.SQL
         }
 
 
+        /// <summary>
+        /// lấy ra kiểu chữ ký
+        /// </summary>
+        /// <param name="ma_chu_ky"></param>
+        /// <returns></returns>
         public int Get_kieu_chu_ky (string ma_chu_ky)
         {
             int result;
             string sqlcmd = "SELECT Kieu_chu_ky FROM dbo.CHU_KY WHERE Ma_chu_ky = " + ma_chu_ky;
             result = Convert.ToInt32(connection.docGiaTri(sqlcmd));
+            return result;
+        }
+
+
+        /// <summary>
+        /// lấy đường dẫn hình ảnh của chữ ký
+        /// </summary>
+        /// <param name="ma_chu_ky"></param>
+        /// <returns></returns>
+        public string Get_duong_dan_chu_ky(string ma_chu_ky)
+        {
+            string result="";
+            string sqlcmd = "SELECT Duong_dan_chu_ky FROM dbo.CHU_KY WHERE Ma_chu_ky = " + ma_chu_ky;
+            result = connection.docGiaTri(sqlcmd).ToString();
+            return result;
+            
+        }
+
+
+        /// <summary>
+        /// lấy ra thông tin người dùng dưới dạng chuỗi
+        /// </summary>
+        /// <param name="ma_user"></param>
+        /// <returns></returns>
+        public string Thong_tin(string ma_user)
+        {
+            string result="";
+            string sqlcmd = "SELECT Ten_chuc_vu FROM dbo.NGUOI_DUNG JOIN dbo.CHUC_VU ON CHUC_VU.Ma_chuc_vu = NGUOI_DUNG.Ma_chuc_vu WHERE Ma_user =  " + ma_user;
+            string ten_chuc_vu = connection.docGiaTri(sqlcmd).ToString();
+
+            sqlcmd = "SELECT Ten_co_quan FROM dbo.NGUOI_DUNG JOIN dbo.CO_QUAN ON CO_QUAN.Ma_co_quan = NGUOI_DUNG.Ma_co_quan WHERE Ma_user = " + ma_user;
+            string ten_co_quan = connection.docGiaTri(sqlcmd).ToString();
+
+            sqlcmd = "SELECT Ten_user FROM dbo.NGUOI_DUNG WHERE Ma_chuc_vu = " + ma_user;
+            string ten_nguoi = connection.docGiaTri(sqlcmd).ToString();
+
+            result += ten_nguoi;
+            result += "\n";
+
+            result += ten_co_quan;
+            result += "\n";
+
+            result += ten_chuc_vu;
+            result += "\n"; 
+
             return result;
         }
     }

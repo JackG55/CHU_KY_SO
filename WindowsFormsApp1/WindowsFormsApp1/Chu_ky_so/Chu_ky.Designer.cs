@@ -43,13 +43,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_huy = new System.Windows.Forms.Button();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.btnLoadAnh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbTen_mau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,6 +92,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLoadAnh);
             this.groupBox1.Controls.Add(this.radioBt_thong_tin);
             this.groupBox1.Controls.Add(this.radioBt_anh);
             this.groupBox1.Controls.Add(this.radioBt_anh_va_thong_tin);
@@ -116,6 +115,7 @@
             this.radioBt_thong_tin.TabStop = true;
             this.radioBt_thong_tin.Text = "Thông tin";
             this.radioBt_thong_tin.UseVisualStyleBackColor = true;
+            this.radioBt_thong_tin.CheckedChanged += new System.EventHandler(this.radioBt_thong_tin_CheckedChanged);
             // 
             // radioBt_anh
             // 
@@ -127,6 +127,7 @@
             this.radioBt_anh.TabStop = true;
             this.radioBt_anh.Text = "Hình ảnh";
             this.radioBt_anh.UseVisualStyleBackColor = true;
+            this.radioBt_anh.CheckedChanged += new System.EventHandler(this.radioBt_anh_CheckedChanged);
             // 
             // radioBt_anh_va_thong_tin
             // 
@@ -138,6 +139,7 @@
             this.radioBt_anh_va_thong_tin.TabStop = true;
             this.radioBt_anh_va_thong_tin.Text = "Hình ảnh và thông tin";
             this.radioBt_anh_va_thong_tin.UseVisualStyleBackColor = true;
+            this.radioBt_anh_va_thong_tin.CheckedChanged += new System.EventHandler(this.radioBt_anh_va_thong_tin_CheckedChanged);
             // 
             // radioGroup1
             // 
@@ -153,7 +155,6 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureEdit1);
             this.panel2.Location = new System.Drawing.Point(541, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(314, 214);
@@ -201,14 +202,15 @@
             this.bt_huy.Text = "Huỷ";
             this.bt_huy.UseVisualStyleBackColor = true;
             // 
-            // pictureEdit1
+            // btnLoadAnh
             // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(153, 212);
-            this.pictureEdit1.TabIndex = 0;
+            this.btnLoadAnh.Location = new System.Drawing.Point(541, 242);
+            this.btnLoadAnh.Name = "btnLoadAnh";
+            this.btnLoadAnh.Size = new System.Drawing.Size(86, 31);
+            this.btnLoadAnh.TabIndex = 8;
+            this.btnLoadAnh.Text = "Load Ảnh";
+            this.btnLoadAnh.UseVisualStyleBackColor = true;
+            this.btnLoadAnh.Visible = false;
             // 
             // Chu_ky
             // 
@@ -225,9 +227,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbTen_mau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,6 +249,6 @@
         private System.Windows.Forms.Label lbQuan_ly_mau_chu_ky;
         private System.Windows.Forms.ComboBox cbBoxTen_chu_ky;
         private System.Windows.Forms.Button btnTao_moi;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private System.Windows.Forms.Button btnLoadAnh;
     }
 }

@@ -26,8 +26,8 @@ namespace WindowsFormsApp1.SignD
             using (Graphics graphics = Graphics.FromImage(bmp))
             {
                 
-                Font font = new Font("Bookman Old Style", 10);
-                graphics.FillRectangle(new SolidBrush(Color.WhiteSmoke), 0, 0, bmp.Width, bmp.Height);
+                Font font = new Font("Times New Roman", 25);
+                graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, bmp.Width, bmp.Height);
                 graphics.DrawString(txt, font, new SolidBrush(Color.Black), 10, 20);
                 graphics.Flush();
                 font.Dispose();
