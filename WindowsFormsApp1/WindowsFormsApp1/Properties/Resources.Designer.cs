@@ -63,6 +63,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_wvkn {
+            get {
+                object obj = ResourceManager.GetObject("1_wvkn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hoc_vien_ki_thuat_quan_su_he_quan_su {
             get {
                 object obj = ResourceManager.GetObject("hoc-vien-ki-thuat-quan-su-he-quan-su", resourceCulture);
@@ -96,6 +106,16 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap pngtree_vector_inbox_icon_png_image_3997347__2_ {
             get {
                 object obj = ResourceManager.GetObject("pngtree-vector-inbox-icon-png-image_3997347 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tải_xuống {
+            get {
+                object obj = ResourceManager.GetObject("tải xuống", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
