@@ -107,7 +107,7 @@ namespace WindowsFormsApp1.SQL
             para[6] = "@duong_dan_anh";
             para[7] = "@kieu_chu_ky";
             object[] values;
-            values = new object[3];
+            values = new object[8];
             values[0] = chu_ky.Ma_chu_ky;
             values[1] = chu_ky.Ma_user;
             values[2] = chu_ky.Thoi_gian_cap1;
@@ -116,6 +116,36 @@ namespace WindowsFormsApp1.SQL
             values[5] = chu_ky.Ten_chu_ky;
             values[6] = chu_ky.Duong_dan_anh1;
             values[7] = chu_ky.Kieu_chu_ky1;
+            try
+            {
+                int a = connection.Excute_Sql(query, CommandType.StoredProcedure, para, values);
+                if (a != 0)
+                    return true;
+                return false;
+            }
+            catch (SqlException ex)
+            {
+                //DialogResult d;
+                //d = MessageBox.Show("Thông tin thêm không hợp lệ!");
+                return false;
+            }
+            finally
+            {
+                connection.close();
+            }
+        }
+
+
+        public bool Xoa_Chu_ky(string ma_chu_ky)
+        {
+            string query = "XOA_CHU_KY";
+            string[] para;
+            para = new string[1];
+            para[0] = "@ma_chu_ky";
+            object[] values;
+            values = new object[1];
+            values[0] = ma_chu_ky;
+            
             try
             {
                 int a = connection.Excute_Sql(query, CommandType.StoredProcedure, para, values);

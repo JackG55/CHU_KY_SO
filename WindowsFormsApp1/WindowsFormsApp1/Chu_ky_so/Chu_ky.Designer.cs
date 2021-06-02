@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_huy = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
@@ -212,12 +213,24 @@
             this.bt_huy.TabIndex = 3;
             this.bt_huy.Text = "Huỷ";
             this.bt_huy.UseVisualStyleBackColor = true;
+            this.bt_huy.Click += new System.EventHandler(this.bt_huy_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(524, 647);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(86, 29);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // Chu_ky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 700);
+            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.bt_huy);
             this.Controls.Add(this.bt_luu);
             this.Controls.Add(this.label1);
@@ -251,5 +264,6 @@
         private System.Windows.Forms.ComboBox cbBoxTen_chu_ky;
         private System.Windows.Forms.Button btnTao_moi;
         private System.Windows.Forms.Button btnLoadAnh;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

@@ -56,8 +56,13 @@ namespace WindowsFormsApp1.Chu_ky_so
 
             
             cbBoxTen_chu_ky.SelectedValueChanged += cbBoxTen_chu_ky_SelectedValueChanged;
-            
 
+            panel2.Controls.Clear();
+
+            radioButton_enable(false);
+
+            btnXoa.Visible = true;
+            
         }
 
 
@@ -65,12 +70,16 @@ namespace WindowsFormsApp1.Chu_ky_so
         /// kiểm tra các trường xem đã điền đủ chưa
         /// </summary>
         /// <returns></returns>
-        private bool Validate()
+        private bool Kiem_tra_cac_truong()
         {
-            if(cbBoxTen_chu_ky.Text == "" || fileName == "")
+            if(tbTen_mau.Text == "" )
             {
                 return false;
             }
+            else if(radioBt_thong_tin.Checked == false && fileName==mac_dinh )
+            {
+                return false;
+            }    
             else
             {
                 return true;
@@ -86,15 +95,15 @@ namespace WindowsFormsApp1.Chu_ky_so
         {
             if(radioBt_anh_va_thong_tin.Checked == true)
             {
-                return 0;
+                return 1;
             }    
             else if(radioBt_anh.Checked == true)
             {
-                return 1;
+                return 2;
             }    
             else if(radioBt_thong_tin.Checked == true)
             {
-                return 2;
+                return 3;
             }
             else
             {
@@ -102,12 +111,19 @@ namespace WindowsFormsApp1.Chu_ky_so
             }
         }
 
+        private void radioButton_enable(bool gia_tri)
+        {
+            radioBt_anh_va_thong_tin.Enabled = gia_tri;
+            radioBt_anh.Enabled = gia_tri;
+            radioBt_thong_tin.Enabled = gia_tri;
+        }
+
         private void bt_luu_Click(object sender, EventArgs e)
         {
             //them moi
             if(status == 2)
             {
-                if(Validate() == true)
+                if(Kiem_tra_cac_truong() == true)
                 {
                     CHU_KY temp = new CHU_KY();
                     temp.Ma_user = ma_user;
@@ -116,7 +132,7 @@ namespace WindowsFormsApp1.Chu_ky_so
                     int ma_chu_ky = Convert.ToInt32(connection.docGiaTri(sqlcmd)) + 1;
                     temp.Ma_chu_ky = ma_chu_ky.ToString();
 
-                    temp.Ten_chu_ky = cbBoxTen_chu_ky.Text;
+                    temp.Ten_chu_ky = tbTen_mau.Text;
 
                     temp.Kieu_chu_ky1 = Kieu_chu_ky();
 
@@ -124,17 +140,35 @@ namespace WindowsFormsApp1.Chu_ky_so
 
                     temp.Thoi_gin_het_han1 = System.DateTime.Now.AddYears(1);
 
-                    temp.Duong_dan_anh1 = fileName;
+                    if(temp.Kieu_chu_ky1 == 3)
+                    {
+                        temp.Duong_dan_anh1 = "";
+                    }    
+                    else
+                    {
+                        temp.Duong_dan_anh1 = Path.GetFileName(fileName);
+                    }    
+                    
 
                     string fname = tbTen_mau.Text + ".jpg";
-                    string folder = @"E:\Desktop\Thuc_tap_CNTT\Anh\" + ma_user ;
+                    string folder = @"E:\Desktop\Thuc_tap_CNTT\Anh\" + ma_user + @"\Chu_ky" ;
                     string pathstring = Path.Combine(folder, fname);
-                    temp.Duong_dan_chu_ky1 = pathstring;
+                    temp.Duong_dan_chu_ky1 = fname;
 
-                    
+                    //luu chu ky vao file
+                    image_chu_ky.Save(pathstring);
 
 
                     bool add = CHU_KY_SQL.Them_Chu_ky(temp);
+                    if(add == true)
+                    {
+                        MessageBox.Show("Thêm thành công");
+                        InitCbBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi hệ thống");
+                    }
                 }
                 else
                 {
@@ -157,6 +191,9 @@ namespace WindowsFormsApp1.Chu_ky_so
             //chuyen status
             status = 2;
 
+            //enable
+            radioButton_enable(true);
+
             //xoa panel
             panel2.Controls.Clear();
 
@@ -168,6 +205,9 @@ namespace WindowsFormsApp1.Chu_ky_so
             radioBt_anh_va_thong_tin.Checked = false;
             radioBt_anh.Checked = false;
             radioBt_thong_tin.Checked = false;
+
+            //button xoa
+            btnXoa.Visible = false;
 
 
         }
@@ -181,6 +221,12 @@ namespace WindowsFormsApp1.Chu_ky_so
 
             //chuyen status
             status = 0;
+
+            //btn xoa
+            btnXoa.Visible = true;
+
+            //an nut load anh
+            btnLoadAnh.Visible = false;
 
             //ma_chu_ky
             string ma_chu_ky = cbBoxTen_chu_ky.SelectedValue.ToString();
@@ -229,6 +275,7 @@ namespace WindowsFormsApp1.Chu_ky_so
             }    
         }
 
+        Bitmap image_chu_ky = new Bitmap(312,212);
         bool isFull = false;
         string mac_dinh = @"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\hoc-vien-ki-thuat-quan-su-he-quan-su.jpg";
         string fileName = "";
@@ -253,6 +300,7 @@ namespace WindowsFormsApp1.Chu_ky_so
                 string txt = CHU_KY_SQL.Thong_tin(ma_user);
                 Bitmap image_thong_tin = Images.Convert(txt, panel2.Width, panel2.Height);
                 Bitmap image_anh = new Bitmap(fileName);
+
 
                 Set_Two_Image(image_anh, image_thong_tin);
 
@@ -338,6 +386,8 @@ namespace WindowsFormsApp1.Chu_ky_so
             a.Properties.SizeMode = PictureSizeMode.Stretch;
 
             panel2.Controls.Add(a);
+
+            image_chu_ky = image;
         }
 
 
@@ -362,6 +412,28 @@ namespace WindowsFormsApp1.Chu_ky_so
             };
             b.Properties.SizeMode = PictureSizeMode.Stretch;
             panel2.Controls.Add(b);
+
+            image_chu_ky = Images.Combine(a.Image, b.Image);
+        }
+
+        private void bt_huy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string ma_chu_ky = cbBoxTen_chu_ky.SelectedValue.ToString();
+            bool xoa = CHU_KY_SQL.Xoa_Chu_ky(ma_chu_ky);
+            if(xoa==true)
+            {
+                MessageBox.Show("Xoa thanh cong");
+                InitCbBox();
+            }
+            else
+            {
+                MessageBox.Show("Không được phép xoá");
+            }
         }
     }
 }

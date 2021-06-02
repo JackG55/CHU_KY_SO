@@ -14,8 +14,9 @@ namespace WindowsFormsApp1.SignD
             Bitmap bitmap = new Bitmap(i1.Width + i2.Width, Math.Max(i1.Height, i2.Height));
             using (Graphics g = Graphics.FromImage(bitmap))
             {
-                g.DrawImage(i1, 0, 0);
-                g.DrawImage(i2, i2.Width, 0);
+                g.DrawImage(i1, 0, 0, i1.Width, bitmap.Height);
+                g.DrawImage(i2, i1.Width, 0, i2.Width,bitmap.Height);
+                
             }
             return bitmap;
         }
