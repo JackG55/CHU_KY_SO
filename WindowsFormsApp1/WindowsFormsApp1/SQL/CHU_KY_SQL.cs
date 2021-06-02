@@ -164,5 +164,37 @@ namespace WindowsFormsApp1.SQL
                 connection.close();
             }
         }
+
+
+        public bool Sua_Chu_ky(string ma_chu_ky, string ten_chu_ky)
+        {
+            string query = "SUA_CHU_KY";
+            string[] para;
+            para = new string[2];
+            para[0] = "@ma_chu_ky";
+            para[1] = "@ten_chu_ky";
+            object[] values;
+            values = new object[1];
+            values[0] = ma_chu_ky;
+            values[1] = ten_chu_ky;
+
+            try
+            {
+                int a = connection.Excute_Sql(query, CommandType.StoredProcedure, para, values);
+                if (a != 0)
+                    return true;
+                return false;
+            }
+            catch (SqlException ex)
+            {
+                //DialogResult d;
+                //d = MessageBox.Show("Thông tin thêm không hợp lệ!");
+                return false;
+            }
+            finally
+            {
+                connection.close();
+            }
+        }
     }
 }
