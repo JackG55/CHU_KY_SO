@@ -177,7 +177,17 @@ namespace WindowsFormsApp1.Chu_ky_so
             }
             else //chinh sua
             {
-
+                string ma_chu_ky = cbBoxTen_chu_ky.SelectedValue.ToString();
+                bool update = CHU_KY_SQL.Sua_Chu_ky(ma_chu_ky, tbTen_mau.Text);
+                if(update == true)
+                {
+                    MessageBox.Show("Sửa thành công");
+                    InitCbBox();
+                }
+                else
+                {
+                    MessageBox.Show("Không được phép sửa");
+                }
             }
         }
 
