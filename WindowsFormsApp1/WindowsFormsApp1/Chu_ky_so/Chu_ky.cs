@@ -12,6 +12,9 @@ using WindowsFormsApp1.SQL;
 using WindowsFormsApp1.Models;
 using DevExpress.XtraEditors.Controls;
 using WindowsFormsApp1.SignD;
+using System.Security.Cryptography.X509Certificates;
+using WindowsFormsApp1.Connect;
+using System.IO;
 
 namespace WindowsFormsApp1.Chu_ky_so
 {
@@ -58,13 +61,85 @@ namespace WindowsFormsApp1.Chu_ky_so
         }
 
 
+        /// <summary>
+        /// kiểm tra các trường xem đã điền đủ chưa
+        /// </summary>
+        /// <returns></returns>
+        private bool Validate()
+        {
+            if(cbBoxTen_chu_ky.Text == "" || fileName == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+           
+        }
+
+        /// <summary>
+        /// xác định kiểu chữ ký
+        /// </summary>
+        /// <returns></returns>
+        private int Kieu_chu_ky()
+        {
+            if(radioBt_anh_va_thong_tin.Checked == true)
+            {
+                return 0;
+            }    
+            else if(radioBt_anh.Checked == true)
+            {
+                return 1;
+            }    
+            else if(radioBt_thong_tin.Checked == true)
+            {
+                return 2;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         private void bt_luu_Click(object sender, EventArgs e)
         {
             //them moi
             if(status == 2)
             {
+                if(Validate() == true)
+                {
+                    CHU_KY temp = new CHU_KY();
+                    temp.Ma_user = ma_user;
 
+                    string sqlcmd = "SELECT MAX(Ma_chu_ky) FROM dbo.CHU_KY";
+                    int ma_chu_ky = Convert.ToInt32(connection.docGiaTri(sqlcmd)) + 1;
+                    temp.Ma_chu_ky = ma_chu_ky.ToString();
+
+                    temp.Ten_chu_ky = cbBoxTen_chu_ky.Text;
+
+                    temp.Kieu_chu_ky1 = Kieu_chu_ky();
+
+                    temp.Thoi_gian_cap1 = System.DateTime.Now;
+
+                    temp.Thoi_gin_het_han1 = System.DateTime.Now.AddYears(1);
+
+                    temp.Duong_dan_anh1 = fileName;
+
+                    string fname = tbTen_mau.Text + ".jpg";
+                    string folder = @"E:\Desktop\Thuc_tap_CNTT\Anh\" + ma_user ;
+                    string pathstring = Path.Combine(folder, fname);
+                    temp.Duong_dan_chu_ky1 = pathstring;
+
+                    
+
+
+                    bool add = CHU_KY_SQL.Them_Chu_ky(temp);
+                }
+                else
+                {
+                    MessageBox.Show("Ban phai dien day du cac truong");
+                }
             }
             else //chinh sua
             {
@@ -84,6 +159,9 @@ namespace WindowsFormsApp1.Chu_ky_so
 
             //xoa panel
             panel2.Controls.Clear();
+
+            //xoa filename
+            fileName = "";
 
 
             //xoa checked
@@ -152,12 +230,18 @@ namespace WindowsFormsApp1.Chu_ky_so
         }
 
         bool isFull = false;
+        string mac_dinh = @"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\hoc-vien-ki-thuat-quan-su-he-quan-su.jpg";
+        string fileName = "";
 
         private void radioBt_anh_va_thong_tin_CheckedChanged(object sender, EventArgs e)
         {
             if(status==2)
             {
                 panel2.Controls.Clear();
+                if(fileName == "")
+                {
+                    fileName = mac_dinh;
+                }    
                 
                 //hien nut load anh
                 btnLoadAnh.Visible = true;
@@ -168,7 +252,7 @@ namespace WindowsFormsApp1.Chu_ky_so
                 //hien thi mac dinh
                 string txt = CHU_KY_SQL.Thong_tin(ma_user);
                 Bitmap image_thong_tin = Images.Convert(txt, panel2.Width, panel2.Height);
-                Bitmap image_anh = new Bitmap(@"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\hoc-vien-ki-thuat-quan-su-he-quan-su.jpg");
+                Bitmap image_anh = new Bitmap(fileName);
 
                 Set_Two_Image(image_anh, image_thong_tin);
 
@@ -183,6 +267,10 @@ namespace WindowsFormsApp1.Chu_ky_so
             if(status==2)
             {
                 panel2.Controls.Clear();
+                if (fileName == "")
+                {
+                    fileName = mac_dinh;
+                }
 
                 //hien nut load anh
                 btnLoadAnh.Visible = true;
@@ -191,7 +279,7 @@ namespace WindowsFormsApp1.Chu_ky_so
                 isFull = true;
 
                 //hien thi mac dinh
-                Bitmap image_anh = new Bitmap(@"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\hoc-vien-ki-thuat-quan-su-he-quan-su.jpg");
+                Bitmap image_anh = new Bitmap(fileName);
 
                 Set_Full_Image(image_anh);
 
@@ -216,17 +304,39 @@ namespace WindowsFormsApp1.Chu_ky_so
 
 
 
-        public void Set_Full_Image (Bitmap image)
+        private void btnLoadAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files | *.jpg; *.jpeg; *.png;";
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                fileName = dlg.FileName;
+                Bitmap a = new Bitmap(fileName);
+                //load ảnh vào
+                if (isFull == true)
+                {
+                    Set_Full_Image(a);
+                }    
+                else if(isFull==false)
+                {
+                    string txt = CHU_KY_SQL.Thong_tin(ma_user);
+                    Bitmap b = Images.Convert(txt, panel2.Width, panel2.Height);
+                    Set_Two_Image(a, b);
+                }    
+            }    
+        }
+
+        public void Set_Full_Image(Bitmap image)
         {
             panel2.Controls.Clear();
             PictureEdit a = new PictureEdit
             {
                 Dock = DockStyle.Fill,
                 Image = image,
-               
+
             };
             a.Properties.SizeMode = PictureSizeMode.Stretch;
-            
+
             panel2.Controls.Add(a);
         }
 
@@ -238,7 +348,7 @@ namespace WindowsFormsApp1.Chu_ky_so
             {
                 Dock = DockStyle.Left,
                 Width = 143,
-                Height = 212, 
+                Height = 212,
                 Image = image_anh
             };
             a.Properties.SizeMode = PictureSizeMode.Stretch;
@@ -247,13 +357,11 @@ namespace WindowsFormsApp1.Chu_ky_so
             {
                 Dock = DockStyle.Right,
                 Width = panel2.Width - a.Width,
-                Height = 212, 
+                Height = 212,
                 Image = image_thong_tin
             };
             b.Properties.SizeMode = PictureSizeMode.Stretch;
             panel2.Controls.Add(b);
         }
-
-       
     }
 }

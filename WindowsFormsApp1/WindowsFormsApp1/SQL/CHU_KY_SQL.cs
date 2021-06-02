@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,6 +86,53 @@ namespace WindowsFormsApp1.SQL
             result += "\n"; 
 
             return result;
+        }
+
+
+        
+
+
+
+        public bool Them_Chu_ky(CHU_KY chu_ky)
+        {
+            string query = "THEM_CHU_KY";
+            string[] para;
+            para = new string[8];
+            para[0] = "@ma_chu_ky";
+            para[1] = "@ma_user";
+            para[2] = "@thoi_gian_cap";
+            para[3] = "@thoi_gian_het_han";
+            para[4] = "@duong_dan_chu_ky";
+            para[5] = "@ten_chu_ky";
+            para[6] = "@duong_dan_anh";
+            para[7] = "@kieu_chu_ky";
+            object[] values;
+            values = new object[3];
+            values[0] = chu_ky.Ma_chu_ky;
+            values[1] = chu_ky.Ma_user;
+            values[2] = chu_ky.Thoi_gian_cap1;
+            values[3] = chu_ky.Thoi_gin_het_han1;
+            values[4] = chu_ky.Duong_dan_chu_ky1;
+            values[5] = chu_ky.Ten_chu_ky;
+            values[6] = chu_ky.Duong_dan_anh1;
+            values[7] = chu_ky.Kieu_chu_ky1;
+            try
+            {
+                int a = connection.Excute_Sql(query, CommandType.StoredProcedure, para, values);
+                if (a != 0)
+                    return true;
+                return false;
+            }
+            catch (SqlException ex)
+            {
+                //DialogResult d;
+                //d = MessageBox.Show("Thông tin thêm không hợp lệ!");
+                return false;
+            }
+            finally
+            {
+                connection.close();
+            }
         }
     }
 }

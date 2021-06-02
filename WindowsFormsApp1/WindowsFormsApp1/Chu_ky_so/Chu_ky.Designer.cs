@@ -33,6 +33,7 @@
             this.cbBoxTen_chu_ky = new System.Windows.Forms.ComboBox();
             this.lbQuan_ly_mau_chu_ky = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLoadAnh = new System.Windows.Forms.Button();
             this.radioBt_thong_tin = new System.Windows.Forms.RadioButton();
             this.radioBt_anh = new System.Windows.Forms.RadioButton();
             this.radioBt_anh_va_thong_tin = new System.Windows.Forms.RadioButton();
@@ -43,7 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_huy = new System.Windows.Forms.Button();
-            this.btnLoadAnh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
@@ -104,6 +104,17 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hiển thị chữ ký";
+            // 
+            // btnLoadAnh
+            // 
+            this.btnLoadAnh.Location = new System.Drawing.Point(541, 242);
+            this.btnLoadAnh.Name = "btnLoadAnh";
+            this.btnLoadAnh.Size = new System.Drawing.Size(86, 31);
+            this.btnLoadAnh.TabIndex = 8;
+            this.btnLoadAnh.Text = "Load Ảnh";
+            this.btnLoadAnh.UseVisualStyleBackColor = true;
+            this.btnLoadAnh.Visible = false;
+            this.btnLoadAnh.Click += new System.EventHandler(this.btnLoadAnh_Click);
             // 
             // radioBt_thong_tin
             // 
@@ -201,16 +212,6 @@
             this.bt_huy.TabIndex = 3;
             this.bt_huy.Text = "Huỷ";
             this.bt_huy.UseVisualStyleBackColor = true;
-            // 
-            // btnLoadAnh
-            // 
-            this.btnLoadAnh.Location = new System.Drawing.Point(541, 242);
-            this.btnLoadAnh.Name = "btnLoadAnh";
-            this.btnLoadAnh.Size = new System.Drawing.Size(86, 31);
-            this.btnLoadAnh.TabIndex = 8;
-            this.btnLoadAnh.Text = "Load Ảnh";
-            this.btnLoadAnh.UseVisualStyleBackColor = true;
-            this.btnLoadAnh.Visible = false;
             // 
             // Chu_ky
             // 
