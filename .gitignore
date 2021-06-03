@@ -48,7 +48,6 @@ WindowsFormsApp1/WindowsFormsApp1/bin/Debug/ru/DevExpress.Pdf.v19.1.Core.resourc
 WindowsFormsApp1/WindowsFormsApp1/bin/Debug/ru/DevExpress.Data.v19.1.resources.dll
 WindowsFormsApp1/WindowsFormsApp1/bin/Debug/ja/DevExpress.XtraEditors.v19.1.resources.dll
 WindowsFormsApp1/WindowsFormsApp1/bin/Debug/ja/DevExpress.XtraBars.v19.1.resources.dll
-*.csproj
 WindowsFormsApp1/WindowsFormsApp1/WindowsFormsApp1.csproj
 WindowsFormsApp1/.vs/WindowsFormsApp1/v16/.suo
 *.resources
@@ -59,15 +58,7 @@ WindowsFormsApp1/.vs/WindowsFormsApp1/v16/.suo
 *.licenses
 *.pdb
 *.exe
-*.txt
 *.CopyComplete
-*.csproj
 WindowsFormsApp1/.vs/WindowsFormsApp1/v16/.suo
-*.sln
-*.user
-*.user
-*.csproj
-*.csproj
-*.user
 *.dll
 *.xml
