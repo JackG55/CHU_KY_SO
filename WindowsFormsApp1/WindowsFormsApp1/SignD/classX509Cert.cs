@@ -32,7 +32,6 @@ namespace WindowsFormsApp1.SignD
             try
             {
                 store.Open(OpenFlags.ReadOnly);
-
                 // Place all certificates in an X509Certificate2Collection object.
                 X509Certificate2Collection certCollection = store.Certificates;
                 // If using a certificate with a trusted root you do not need to FindByTimeValid, instead:
@@ -64,7 +63,7 @@ namespace WindowsFormsApp1.SignD
             signedCms.ComputeSignature(signer);
             return signedCms.Encode();
         }
-        private static bool VerifySignatures(FileInfo contentFile, Stream signedDataStream)
+        public static bool VerifySignatures(FileInfo contentFile, Stream signedDataStream)
         {
             CmsProcessable signedContent = null;
             CmsSignedData cmsSignedData = null;
