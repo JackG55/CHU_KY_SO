@@ -15,6 +15,7 @@ namespace WindowsFormsApp1.SignD
             {
                 return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
             }
+
         }
         public static string getHashString(string inputString)
         {

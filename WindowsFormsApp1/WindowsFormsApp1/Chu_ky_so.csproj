@@ -113,6 +113,11 @@
     <Compile Include="Trang_chu.Designer.cs">
       <DependentUpon>Trang_chu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transport\ClientSocket.cs" />
+    <Compile Include="Transport\Command.cs" />
+    <Compile Include="Transport\CustomEvent.cs" />
+    <Compile Include="Transport\Enums.cs" />
+    <Compile Include="Transport\User.cs" />
     <Compile Include="Van_ban\Chuyen_doi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +205,9 @@
     </PackageReference>
     <PackageReference Include="iTextSharp">
       <Version>5.5.13.2</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="Portable.BouncyCastle">
       <Version>1.8.10</Version>
