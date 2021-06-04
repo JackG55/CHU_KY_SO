@@ -135,6 +135,7 @@
             this.bt_ktra_ten.TabIndex = 2;
             this.bt_ktra_ten.Text = "KIỂM TRA TÊN";
             this.bt_ktra_ten.UseVisualStyleBackColor = true;
+            this.bt_ktra_ten.Click += new System.EventHandler(this.bt_ktra_ten_Click);
             // 
             // bt_luu
             // 

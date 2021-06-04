@@ -18,7 +18,13 @@ namespace WindowsFormsApp1.Chu_ky_so
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// lấy ra các chữ ký của user
+        /// </summary>
+        /// <param name="ma_user"></param>
+        private void InitDropBox(string ma_user)
         {
 
         }

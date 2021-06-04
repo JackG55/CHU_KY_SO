@@ -41,15 +41,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
             this.bt_ky = new System.Windows.Forms.Button();
             this.bt_dong = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.piceditChu_ky = new DevExpress.XtraEditors.PictureEdit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.piceditChu_ky.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,18 +77,19 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.comboBox1);
             this.groupControl1.Controls.Add(this.groupControl2);
             this.groupControl1.Controls.Add(this.pictureEdit1);
-            this.groupControl1.Controls.Add(this.dropDownButton1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 91);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1094, 313);
+            this.groupControl1.Size = new System.Drawing.Size(1094, 402);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Chọn chữ ký";
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.panel2);
             this.groupControl2.Controls.Add(this.lb_status);
             this.groupControl2.Controls.Add(this.lb_thoi_gian);
             this.groupControl2.Controls.Add(this.lb_noi_cap);
@@ -95,25 +100,25 @@
             this.groupControl2.Controls.Add(this.label2);
             this.groupControl2.Location = new System.Drawing.Point(12, 87);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1045, 209);
+            this.groupControl2.Size = new System.Drawing.Size(1045, 286);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Thông tin chứng thư số";
             // 
             // lb_status
             // 
             this.lb_status.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_status.Location = new System.Drawing.Point(159, 170);
+            this.lb_status.Location = new System.Drawing.Point(158, 226);
             this.lb_status.Name = "lb_status";
-            this.lb_status.Size = new System.Drawing.Size(788, 26);
+            this.lb_status.Size = new System.Drawing.Size(393, 26);
             this.lb_status.TabIndex = 7;
             this.lb_status.Text = "Thông tin chứng thư số hợp lệ";
             // 
             // lb_thoi_gian
             // 
             this.lb_thoi_gian.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_thoi_gian.Location = new System.Drawing.Point(159, 128);
+            this.lb_thoi_gian.Location = new System.Drawing.Point(159, 158);
             this.lb_thoi_gian.Name = "lb_thoi_gian";
-            this.lb_thoi_gian.Size = new System.Drawing.Size(788, 26);
+            this.lb_thoi_gian.Size = new System.Drawing.Size(394, 26);
             this.lb_thoi_gian.TabIndex = 6;
             this.lb_thoi_gian.Text = "15/8/2020 đến 15/9/2021";
             // 
@@ -122,7 +127,7 @@
             this.lb_noi_cap.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_noi_cap.Location = new System.Drawing.Point(209, 85);
             this.lb_noi_cap.Name = "lb_noi_cap";
-            this.lb_noi_cap.Size = new System.Drawing.Size(738, 26);
+            this.lb_noi_cap.Size = new System.Drawing.Size(343, 26);
             this.lb_noi_cap.TabIndex = 5;
             this.lb_noi_cap.Text = "Phòng hậu cần";
             // 
@@ -131,14 +136,14 @@
             this.lb_ten_chu_so_huu.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ten_chu_so_huu.Location = new System.Drawing.Point(159, 38);
             this.lb_ten_chu_so_huu.Name = "lb_ten_chu_so_huu";
-            this.lb_ten_chu_so_huu.Size = new System.Drawing.Size(788, 26);
+            this.lb_ten_chu_so_huu.Size = new System.Drawing.Size(392, 26);
             this.lb_ten_chu_so_huu.TabIndex = 4;
             this.lb_ten_chu_so_huu.Text = "Phạm Công Thảo ";
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(49, 170);
+            this.label5.Location = new System.Drawing.Point(48, 226);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 26);
             this.label5.TabIndex = 3;
@@ -147,12 +152,11 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(49, 128);
+            this.label4.Location = new System.Drawing.Point(48, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 26);
             this.label4.TabIndex = 2;
             this.label4.Text = "Thời hạn :";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -180,17 +184,9 @@
             this.pictureEdit1.Size = new System.Drawing.Size(36, 29);
             this.pictureEdit1.TabIndex = 1;
             // 
-            // dropDownButton1
-            // 
-            this.dropDownButton1.Location = new System.Drawing.Point(64, 37);
-            this.dropDownButton1.Name = "dropDownButton1";
-            this.dropDownButton1.Size = new System.Drawing.Size(895, 29);
-            this.dropDownButton1.TabIndex = 0;
-            this.dropDownButton1.Text = "dropDownButton1";
-            // 
             // bt_ky
             // 
-            this.bt_ky.Location = new System.Drawing.Point(91, 442);
+            this.bt_ky.Location = new System.Drawing.Point(91, 512);
             this.bt_ky.Name = "bt_ky";
             this.bt_ky.Size = new System.Drawing.Size(124, 55);
             this.bt_ky.TabIndex = 2;
@@ -200,7 +196,7 @@
             // 
             // bt_dong
             // 
-            this.bt_dong.Location = new System.Drawing.Point(785, 442);
+            this.bt_dong.Location = new System.Drawing.Point(804, 512);
             this.bt_dong.Name = "bt_dong";
             this.bt_dong.Size = new System.Drawing.Size(124, 55);
             this.bt_dong.TabIndex = 3;
@@ -208,11 +204,36 @@
             this.bt_dong.UseVisualStyleBackColor = true;
             this.bt_dong.Click += new System.EventHandler(this.bt_dong_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.piceditChu_ky);
+            this.panel2.Location = new System.Drawing.Point(692, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(314, 214);
+            this.panel2.TabIndex = 8;
+            // 
+            // piceditChu_ky
+            // 
+            this.piceditChu_ky.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.piceditChu_ky.Location = new System.Drawing.Point(0, 0);
+            this.piceditChu_ky.Name = "piceditChu_ky";
+            this.piceditChu_ky.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.piceditChu_ky.Size = new System.Drawing.Size(314, 214);
+            this.piceditChu_ky.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(91, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(837, 24);
+            this.comboBox1.TabIndex = 3;
+            // 
             // Chon_chu_ky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 554);
+            this.ClientSize = new System.Drawing.Size(1094, 615);
             this.Controls.Add(this.bt_dong);
             this.Controls.Add(this.bt_ky);
             this.Controls.Add(this.groupControl1);
@@ -225,6 +246,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.piceditChu_ky.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,12 +263,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.DropDownButton dropDownButton1;
         private System.Windows.Forms.Label lb_status;
         private System.Windows.Forms.Label lb_thoi_gian;
         private System.Windows.Forms.Label lb_noi_cap;
         private System.Windows.Forms.Label lb_ten_chu_so_huu;
         private System.Windows.Forms.Button bt_ky;
         private System.Windows.Forms.Button bt_dong;
+        private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraEditors.PictureEdit piceditChu_ky;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

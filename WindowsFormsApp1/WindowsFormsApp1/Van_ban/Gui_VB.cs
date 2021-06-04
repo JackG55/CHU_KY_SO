@@ -194,5 +194,10 @@ namespace WindowsFormsApp1.Van_ban
         {
             this.Close();
         }
+
+        private void bt_ktra_ten_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
