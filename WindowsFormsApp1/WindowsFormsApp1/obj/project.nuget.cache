@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "BIeFdawTbR8T5qbfMKoR+AyD/uCkkZdnSAqiz1CfPWlenVZaNvvdWOfPJhEsb/96kumWxXaLM6UKRwn37QV1iw==",
+  "success": true,
+  "projectFilePath": "E:\\Code\\Github\\CHU_KY_SO\\WindowsFormsApp1\\WindowsFormsApp1\\Chu_ky_so.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\cete.dynamicpdf.coresuite.net\\11.9.0\\cete.dynamicpdf.coresuite.net.11.9.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\itextsharp\\5.5.13.2\\itextsharp.5.5.13.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\portable.bouncycastle\\1.8.10\\portable.bouncycastle.1.8.10.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.security.cryptography.pkcs\\6.0.0-preview.3.21201.4\\system.security.cryptography.pkcs.6.0.0-preview.3.21201.4.nupkg.sha512"
+  ],
+  "logs": []
+}
