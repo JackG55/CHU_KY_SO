@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Connect
+namespace LanServerApp.Connect
 {
-    public class connection
+    public class Connection
     {
         public static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Quan_ly_van_ban;Integrated Security=True";
+
         public static SqlConnection Getconnection()
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -86,7 +84,7 @@ namespace WindowsFormsApp1.Connect
         }
 
 
-        public static DataSet FillDataSet(string strQuery, CommandType cmdtype)
+        public static DataSet FillDataSet(string strQuery, System.Data.CommandType cmdtype)
         {
             DataSet ds = new DataSet();
             try
@@ -111,7 +109,7 @@ namespace WindowsFormsApp1.Connect
             return ds;
         }
 
-        public static DataSet FillDataSet(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static DataSet FillDataSet(string strQuery, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             DataSet ds = new DataSet();
             try
@@ -147,7 +145,7 @@ namespace WindowsFormsApp1.Connect
             return ds;
         }
 
-        public static DataSet DataSetReader(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static DataSet DataSetReader(string strQuery, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             DataSet dsReader = new DataSet();
             try
@@ -175,6 +173,7 @@ namespace WindowsFormsApp1.Connect
                 dataReader = cmd.ExecuteReader();
                 dsReader.Tables[0].Load(dataReader);
                 dataReader.Close();
+
             }
             catch (Exception ex)
             {
@@ -183,7 +182,7 @@ namespace WindowsFormsApp1.Connect
             return dsReader;
         }
 
-        public static SqlDataReader DataReader(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static SqlDataReader DataReader(string strQuery, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             SqlDataReader dataReader;
 
@@ -209,7 +208,7 @@ namespace WindowsFormsApp1.Connect
             return dataReader;
         }
 
-        public static DataSet DataSetReader1(string strQuery, CommandType cmdtype)
+        public static DataSet DataSetReader1(string strQuery, System.Data.CommandType cmdtype)
         {
             DataSet dsReader = new DataSet();
             try
@@ -236,7 +235,7 @@ namespace WindowsFormsApp1.Connect
             }
             return dsReader;
         }
-        public static DataSet DataSetReader(string strQuery, CommandType cmdtype)
+        public static DataSet DataSetReader(string strQuery, System.Data.CommandType cmdtype)
         {
             DataSet dsReader = new DataSet();
             try
@@ -295,7 +294,7 @@ namespace WindowsFormsApp1.Connect
             }
             return i;
         }
-        public static int Excute_Sql(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static int Excute_Sql(string strQuery, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             SqlConnection conn = new SqlConnection();
             conn = Getconnection();
@@ -325,7 +324,7 @@ namespace WindowsFormsApp1.Connect
             return efftectRecord;
         }
 
-        public static void Excute_non_return_Querry(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static void Excute_non_return_Querry(string strQuery, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             SqlConnection conn = new SqlConnection();
             conn = Getconnection();
@@ -394,7 +393,7 @@ namespace WindowsFormsApp1.Connect
             }
             return result;
         }
-        public static object docGiaTri(string sql, CommandType cmdtype, string[] para, object[] values)
+        public static object docGiaTri(string sql, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             object result = null;
             SqlConnection conn = Getconnection();
@@ -435,7 +434,7 @@ namespace WindowsFormsApp1.Connect
             catch { }
             return giaTri;
         }
-        public static string ExcuteScalar(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static string ExcuteScalar(string strQuery, System.Data.CommandType cmdtype, string[] para, object[] values)
         {
             SqlConnection conn = new SqlConnection();
             conn = Getconnection();
@@ -461,7 +460,7 @@ namespace WindowsFormsApp1.Connect
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:" + ex.Message);
+                Console.WriteLine("Error:" + ex.Message);
             }
             return efftectRecord;
         }

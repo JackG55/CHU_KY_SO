@@ -110,31 +110,60 @@ namespace WindowsFormsApp1.Transport
             try
             {
                 semaphor.WaitOne();
-                if (cmd.MetaData == null)
+                if (cmd.MetaData == null || cmd.MetaData == "")
                     this.SetMetaDataIfIsNull(cmd);
+
+
                 //CommandType
                 byte[] buffer = new byte[4];
                 buffer = BitConverter.GetBytes((int)cmd.CommandType);
                 this.networkStream.Write(buffer, 0, 4);
                 this.networkStream.Flush();
-                //command sender
-                if (cmd.CommandType == CommandType.SendFile)
-                {
 
-                }
-                //Command Target
-                byte[] ipBuffer = Encoding.ASCII.GetBytes(cmd.Target.ToString());
+
+                //command sender name
+                byte[] senderBuffer = Encoding.ASCII.GetBytes(cmd.SenderName);
+
                 buffer = new byte[4];
-                buffer = BitConverter.GetBytes(ipBuffer.Length);
+                buffer = BitConverter.GetBytes(senderBuffer.Length);
+
                 this.networkStream.Write(buffer, 0, 4);
                 this.networkStream.Flush();
-                this.networkStream.Write(ipBuffer, 0, ipBuffer.Length);
+
+                this.networkStream.Write(senderBuffer, 0, senderBuffer.Length);
                 this.networkStream.Flush();
+
+
+                //Command Target
+                byte[] targetBuffer = Encoding.ASCII.GetBytes(cmd.TargetName);
+                buffer = new byte[4];
+                buffer = BitConverter.GetBytes(targetBuffer.Length);
+
+                this.networkStream.Write(buffer, 0, 4);
+                this.networkStream.Flush();
+
+                this.networkStream.Write(targetBuffer, 0, targetBuffer.Length);
+                this.networkStream.Flush();
+
+                // if sendfile
+                if (cmd.CommandType == CommandType.SendFile)
+                {
+                    byte[] fnBuffer = Encoding.ASCII.GetBytes(cmd.Filename);
+                    buffer = new byte[4];
+                    buffer = BitConverter.GetBytes(fnBuffer.Length);
+
+                    this.networkStream.Write(buffer, 0, 4);
+                    this.networkStream.Flush();
+
+                    this.networkStream.Write(fnBuffer, 0, fnBuffer.Length);
+                    this.networkStream.Flush();
+                }
                 //Command MetaData
                 byte[] metaBuffer;
                 if (cmd.CommandType == CommandType.SendFile)
                     metaBuffer = (byte[])cmd.MetaData;
-                else metaBuffer = Encoding.Unicode.GetBytes(JsonConvert.SerializeObject(cmd.MetaData));
+                else metaBuffer = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(cmd.MetaData));
+
                 buffer = new byte[4];
                 buffer = BitConverter.GetBytes(metaBuffer.Length);
                 this.networkStream.Write(buffer, 0, 4);
@@ -207,51 +236,36 @@ namespace WindowsFormsApp1.Transport
                     break;
                 CommandType cmdType = (CommandType)(BitConverter.ToInt32(buffer, 0));
 
-                //Read the command's sender ip size.
-                //buffer = new byte[4];
-                //readBytes = this.networkStream.Read(buffer, 0, 4);
-                //if (readBytes == 0)
-                //    break;
-                //int senderIPSize = BitConverter.ToInt32(buffer, 0);
-
-                ////Read the command's sender ip.
-                //buffer = new byte[senderIPSize];
-                //readBytes = this.networkStream.Read(buffer, 0, senderIPSize);
-                //if (readBytes == 0)
-                //    break;
-                //IPAddress senderIP = IPAddress.Parse(System.Text.Encoding.ASCII.GetString(buffer));
-
                 //Read the command's sender name size.
-                //buffer = new byte[4];
-                //readBytes = this.networkStream.Read(buffer, 0, 4);
-                //if (readBytes == 0)
-                //    break;
-                //int senderNameSize = BitConverter.ToInt32(buffer, 0);
-
-                ////Read the command's sender name.
-                //buffer = new byte[senderNameSize];
-                //readBytes = this.networkStream.Read(buffer, 0, senderNameSize);
-                //if (readBytes == 0)
-                //    break;
-                //string senderName = Encoding.Unicode.GetString(buffer);
-
-                //Read the command's target size.
-                string cmdTarget = "";
                 buffer = new byte[4];
                 readBytes = this.networkStream.Read(buffer, 0, 4);
                 if (readBytes == 0)
                     break;
-                int ipSize = BitConverter.ToInt32(buffer, 0);
+                int senderNameSize = BitConverter.ToInt32(buffer, 0);
 
-                //Read the command's target.
-                buffer = new byte[ipSize];
-                readBytes = this.networkStream.Read(buffer, 0, ipSize);
+                //Read the command's sender name.
+                buffer = new byte[senderNameSize];
+                readBytes = this.networkStream.Read(buffer, 0, senderNameSize);
                 if (readBytes == 0)
                     break;
-                cmdTarget = Encoding.ASCII.GetString(buffer);
+                string senderName = System.Text.Encoding.ASCII.GetString(buffer);
+
+                //Read the command's target name  size.
+                string targetName = "";
+                buffer = new byte[4];
+                readBytes = this.networkStream.Read(buffer, 0, 4);
+                if (readBytes == 0)
+                    break;
+                int targetSize = BitConverter.ToInt32(buffer, 0);
+
+                //Read the command's target.
+                buffer = new byte[targetSize];
+                readBytes = this.networkStream.Read(buffer, 0, targetSize);
+                if (readBytes == 0)
+                    break;
+                targetName = Encoding.ASCII.GetString(buffer);
 
                 //Read the command's MetaData size.
-                string cmdMetaData = "";
                 buffer = new byte[4];
                 readBytes = this.networkStream.Read(buffer, 0, 4);
                 if (readBytes == 0)
@@ -263,9 +277,8 @@ namespace WindowsFormsApp1.Transport
                 readBytes = this.networkStream.Read(buffer, 0, metaDataSize);
                 if (readBytes == 0)
                     break;
-                cmdMetaData = Encoding.Unicode.GetString(buffer);
 
-                Command cmd = new Command(cmdType, IPAddress.Parse(cmdTarget), cmdMetaData);
+                Command cmd = new Command(cmdType,senderName, targetName, buffer);
                 //cmd.SenderIP = senderIP;
                 //cmd.SenderName = senderName;
                 this.OnCommandReceived(new CommandReceivedEventArgs(cmd));
@@ -279,7 +292,7 @@ namespace WindowsFormsApp1.Transport
             {
                 try
                 {
-                    this.SendCommand(new Command(CommandType.UserExit, this.serverEP.Address, user));
+                    this.SendCommand(new Command(CommandType.UserExit, this.networkName , this.serverEP.Address.ToString(), user));
                     this.clientSocket.Shutdown(SocketShutdown.Both);
                     this.clientSocket.Close();
                     return true;
@@ -327,22 +340,22 @@ namespace WindowsFormsApp1.Transport
 
         public void LoginToServer(User user)
         {
-            Command cmd = new Command(CommandType.UserLogin, this.serverEP.Address, user);
+            Command cmd = new Command(CommandType.UserLogin,"test" ,this.serverEP.Address.ToString(), user);
             this.SendCommand(cmd);
         }
 
         public void GetListUserInfo()
         {
-            Command cmd = new Command(CommandType.SendClientList, this.serverEP.Address);
+            Command cmd = new Command(CommandType.SendClientList,"test" ,this.serverEP.Address.ToString(),"");
             this.SendCommand(cmd);
         }
-        public void SendFile(byte[] fileData, string targetUser)
+        public void SendFile(byte[] fileData, string targetUser,string filename)
         {
-            Command cmd = new Command(CommandType.SendFile, this.serverEP.Address, fileData);
-            cmd.SenderIP = this.IP;
-            cmd.SenderName = this.networkName;
+            Command cmd = new Command(CommandType.SendFile,this.NetworkName, targetUser, filename,fileData);
+            //cmd.SenderIP = this.IP;
+            //cmd.SenderName = this.networkName;
             //cmd.Target = 
-            //this.SendCommand(cmd);
+            this.SendCommand(cmd);
         }
 
 

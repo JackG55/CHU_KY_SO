@@ -20,17 +20,6 @@ namespace LanServerApp
             Password = password;
         }
        
-        //public User(Session session) : base(session)
-        //{
-        //    // This constructor is used when an object is loaded from a persistent storage.
-        //    // Do not place any code here.
-        //}
-
-        //public override void AfterConstruction()
-        //{
-        //    base.AfterConstruction();
-        //    // Place here your initialization code.
-        //}
     }
     public class UserInfo
     {
@@ -46,5 +35,4 @@ namespace LanServerApp
             return this.LoginInfo.Username + ":" + this.UserIP.Address.ToString();
         }
     }
-
 }

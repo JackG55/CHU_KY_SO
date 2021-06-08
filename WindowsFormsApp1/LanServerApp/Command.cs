@@ -19,16 +19,6 @@ namespace LanServerApp
             set { cmdType = value; }
         }
 
-        private IPAddress senderIP;
-        /// <summary>
-        /// [Gets/Sets] The IP address of command sender.
-        /// </summary>
-        public IPAddress SenderIP
-        {
-            get { return senderIP; }
-            set { senderIP = value; }
-        }
-
         private string senderName;
         /// <summary>
         /// [Gets/Sets] The name of command sender.
@@ -39,14 +29,14 @@ namespace LanServerApp
             set { senderName = value; }
         }
 
-        private IPAddress target;
+        private string targetName;
         /// <summary>
         /// [Gets/Sets] The targer machine that will receive the command.Set this property to IPAddress.Broadcast if you want send the command to all connected clients.
         /// </summary>
-        public IPAddress Target
+        public string TargetName
         {
-            get { return target; }
-            set { target = value; }
+            get { return targetName; }
+            set { targetName = value; }
         }
         private object commandBody;
         /// <summary>
@@ -62,24 +52,21 @@ namespace LanServerApp
             get { return commandBody; }
             set { commandBody = value; }
         }
+        private string filename;
+        public string Filename { get; set; }
         /// <summary>
-        /// Creates an instance of command object to send over the network.
+        /// 
         /// </summary>
-        /// <param name="type">The type of command.If you wanna use the Message command type,create a Message class instead of command.</param>
-        /// <param name="targetMachine">The targer machine that will receive the command.Set this property to IPAddress.Broadcast if you want send the command to all connected clients.</param>
-        /// <param name="metaData">
-        /// The body of the command.This string is different in various commands.
-        /// <para>Message : The text of the message.</para>
-        /// <para>ClientLoginInform,SendClientList : "RemoteClientIP:RemoteClientName".</para>
-        /// <para>***WithTimer : The interval of timer in miliseconds..The default value is 60000 equal to 1 min.</para>
-        /// <para>IsNameExists : 'True' or 'False'</para>
-        /// <para>Otherwise pass the "" or null or use the next overriden constructor.</para>
-        /// </param>
-        public Command(CommandType type, IPAddress targetMachine, object metaData)
+        /// <param name="type"></param>
+        /// <param name="senderMachine"></param>
+        /// <param name="targetMachine"></param>
+        /// <param name="metaData"></param>
+        public Command(CommandType type, string senderMachine,string targetMachine, object metaData)
         {
             this.cmdType = type;
-            this.target = targetMachine;
-            this.commandBody = metaData;
+            this.senderName = senderMachine;
+            this.targetName = targetMachine;
+            this.MetaData = metaData;
         }
 
         /// <summary>
@@ -87,11 +74,13 @@ namespace LanServerApp
         /// </summary>
         /// <param name="type">The type of command.If you wanna use the Message command type,create a Message class instead of command.</param>
         /// <param name="targetMachine">The targer machine that will receive the command.Set this property to IPAddress.Broadcast if you want send the command to all connected clients.</param>
-        public Command(CommandType type, IPAddress targetMachine)
+        public Command(CommandType type, string senderMachine, string targetMachine,string filename,object metaData)
         {
             this.cmdType = type;
-            this.target = targetMachine;
-            this.commandBody = "";
+            this.targetName = targetMachine;
+            this.commandBody = metaData;
+            this.senderName = senderMachine;
+            this.filename = filename;
         }
     }
 }
