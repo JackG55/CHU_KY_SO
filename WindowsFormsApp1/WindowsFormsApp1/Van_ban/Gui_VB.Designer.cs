@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gui_VB));
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_dong = new System.Windows.Forms.Button();
@@ -36,11 +37,11 @@
             this.bt_luu = new System.Windows.Forms.Button();
             this.bt_gui = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbEmail = new System.Windows.Forms.ComboBox();
             this.bt_chon_file = new System.Windows.Forms.Button();
             this.tb_dinh_kem = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_tieu_de = new DevExpress.XtraEditors.TextEdit();
-            this.tb_ten = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -94,7 +95,6 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_dinh_kem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_tieu_de.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_ten.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel_van_ban.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon_pdf)).BeginInit();
@@ -160,11 +160,11 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cbEmail);
             this.panel3.Controls.Add(this.bt_chon_file);
             this.panel3.Controls.Add(this.tb_dinh_kem);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.tb_tieu_de);
-            this.panel3.Controls.Add(this.tb_ten);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -172,6 +172,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1890, 155);
             this.panel3.TabIndex = 2;
+            // 
+            // cbEmail
+            // 
+            this.cbEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmail.FormattingEnabled = true;
+            this.cbEmail.Location = new System.Drawing.Point(103, 16);
+            this.cbEmail.Name = "cbEmail";
+            this.cbEmail.Size = new System.Drawing.Size(764, 24);
+            this.cbEmail.TabIndex = 7;
+            this.cbEmail.SelectedIndexChanged += new System.EventHandler(this.cbEmail_SelectedIndexChanged);
             // 
             // bt_chon_file
             // 
@@ -206,13 +217,6 @@
             this.tb_tieu_de.Name = "tb_tieu_de";
             this.tb_tieu_de.Size = new System.Drawing.Size(764, 22);
             this.tb_tieu_de.TabIndex = 3;
-            // 
-            // tb_ten
-            // 
-            this.tb_ten.Location = new System.Drawing.Point(103, 16);
-            this.tb_ten.Name = "tb_ten";
-            this.tb_ten.Size = new System.Drawing.Size(764, 22);
-            this.tb_ten.TabIndex = 2;
             // 
             // label2
             // 
@@ -619,7 +623,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_dinh_kem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_tieu_de.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_ten.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel_van_ban.ResumeLayout(false);
             this.panel_van_ban.PerformLayout();
@@ -637,7 +640,6 @@
         private DevExpress.XtraEditors.TextEdit tb_dinh_kem;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.TextEdit tb_tieu_de;
-        private DevExpress.XtraEditors.TextEdit tb_ten;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
@@ -692,5 +694,6 @@
         private DevExpress.XtraBars.BarButtonItem bt_ky_so;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private System.Windows.Forms.ComboBox cbEmail;
     }
 }

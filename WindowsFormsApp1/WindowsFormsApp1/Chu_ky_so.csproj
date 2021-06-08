@@ -101,6 +101,7 @@
     <Compile Include="SignD\RSA.cs" />
     <Compile Include="SignD\RSAKey.cs" />
     <Compile Include="SQL\CHU_KY_SQL.cs" />
+    <Compile Include="SQL\TAI_KHOAN_SQL.cs" />
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>

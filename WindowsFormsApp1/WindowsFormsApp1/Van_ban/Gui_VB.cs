@@ -14,6 +14,7 @@ using WindowsFormsApp1.Chu_ky_so;
 using DevExpress.Pdf.Drawing;
 using DevExpress.Pdf.Drawing.Extensions;
 using System.Net;
+using WindowsFormsApp1.SQL;
 
 namespace WindowsFormsApp1.Van_ban
 {
@@ -22,8 +23,11 @@ namespace WindowsFormsApp1.Van_ban
         public Gui_VB()
         {
             InitializeComponent();
-            
+            InitCbBox();
         }
+
+
+        string ma_user = "1";
 
         bool mouseButtonPressed = false;
         PdfDocumentPosition startPosition;
@@ -199,5 +203,30 @@ namespace WindowsFormsApp1.Van_ban
         {
 
         }
+
+
+        TAI_KHOAN_SQL TAI_KHOAN_SQL = new TAI_KHOAN_SQL();
+
+        /// <summary>
+        /// khởi tạo email
+        /// </summary>
+        public void InitCbBox()
+        {
+            cbEmail.SelectedValueChanged -= cbEmail_SelectedIndexChanged;
+
+            cbEmail.DataSource = TAI_KHOAN_SQL.Get_Tai_khoan(ma_user).Tables[0];
+            cbEmail.DisplayMember = "Email";
+            cbEmail.ValueMember = "Ma_user";
+           
+
+            cbEmail.SelectedValueChanged += cbEmail_SelectedIndexChanged;
+        }
+
+        private void cbEmail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }
