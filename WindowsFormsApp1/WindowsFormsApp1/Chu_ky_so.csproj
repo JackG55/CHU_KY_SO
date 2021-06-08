@@ -178,6 +178,8 @@
     <EmbeddedResource Include="Van_ban\Nhan_VB.resx">
       <DependentUpon>Nhan_VB.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Data\Baitap.pdf" />
+    <None Include="Data\Certificates\TDS.cer" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -194,6 +196,7 @@
   <ItemGroup>
     <None Include="Resources\tải xuống.png" />
     <None Include="Resources\1_wvkn.jpg" />
+    <Content Include="Data\Test.txt" />
     <Content Include="Resources\404.png" />
     <Content Include="Resources\hoc-vien-ki-thuat-quan-su-he-quan-su.jpg" />
     <Content Include="Resources\hoc-vien-ki-thuat-quan-su-he-quan-su1.jpg" />
