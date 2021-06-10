@@ -265,7 +265,10 @@ namespace WindowsFormsApp1.Chu_ky_so
 
         }
 
-
+        /// <summary>
+        /// kiểm tra xem tick vào ô nào để suy ra kiểu chữ ký
+        /// </summary>
+        /// <param name="kieu_chu_ky"></param>
         public void Check(int kieu_chu_ky)
         {
             radioBt_anh_va_thong_tin.Checked = false;

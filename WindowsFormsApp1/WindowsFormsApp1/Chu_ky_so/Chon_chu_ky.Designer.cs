@@ -31,7 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbBoxChu_ky = new System.Windows.Forms.ComboBox();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.piceditChu_ky = new DevExpress.XtraEditors.PictureEdit();
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_thoi_gian = new System.Windows.Forms.Label();
             this.lb_noi_cap = new System.Windows.Forms.Label();
@@ -43,17 +46,14 @@
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.bt_ky = new System.Windows.Forms.Button();
             this.bt_dong = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.piceditChu_ky = new DevExpress.XtraEditors.PictureEdit();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piceditChu_ky.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +77,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.comboBox1);
+            this.groupControl1.Controls.Add(this.cbBoxChu_ky);
             this.groupControl1.Controls.Add(this.groupControl2);
             this.groupControl1.Controls.Add(this.pictureEdit1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -86,6 +86,15 @@
             this.groupControl1.Size = new System.Drawing.Size(1094, 402);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Chọn chữ ký";
+            // 
+            // cbBoxChu_ky
+            // 
+            this.cbBoxChu_ky.FormattingEnabled = true;
+            this.cbBoxChu_ky.Location = new System.Drawing.Point(91, 40);
+            this.cbBoxChu_ky.Name = "cbBoxChu_ky";
+            this.cbBoxChu_ky.Size = new System.Drawing.Size(837, 24);
+            this.cbBoxChu_ky.TabIndex = 3;
+            this.cbBoxChu_ky.SelectedValueChanged += new System.EventHandler(this.cbBoxChu_ky_SelectedValueChanged);
             // 
             // groupControl2
             // 
@@ -103,6 +112,24 @@
             this.groupControl2.Size = new System.Drawing.Size(1045, 286);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Thông tin chứng thư số";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.piceditChu_ky);
+            this.panel2.Location = new System.Drawing.Point(692, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(314, 214);
+            this.panel2.TabIndex = 8;
+            // 
+            // piceditChu_ky
+            // 
+            this.piceditChu_ky.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.piceditChu_ky.Location = new System.Drawing.Point(0, 0);
+            this.piceditChu_ky.Name = "piceditChu_ky";
+            this.piceditChu_ky.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.piceditChu_ky.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.piceditChu_ky.Size = new System.Drawing.Size(314, 214);
+            this.piceditChu_ky.TabIndex = 0;
             // 
             // lb_status
             // 
@@ -204,31 +231,6 @@
             this.bt_dong.UseVisualStyleBackColor = true;
             this.bt_dong.Click += new System.EventHandler(this.bt_dong_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.piceditChu_ky);
-            this.panel2.Location = new System.Drawing.Point(692, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(314, 214);
-            this.panel2.TabIndex = 8;
-            // 
-            // piceditChu_ky
-            // 
-            this.piceditChu_ky.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.piceditChu_ky.Location = new System.Drawing.Point(0, 0);
-            this.piceditChu_ky.Name = "piceditChu_ky";
-            this.piceditChu_ky.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.piceditChu_ky.Size = new System.Drawing.Size(314, 214);
-            this.piceditChu_ky.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(837, 24);
-            this.comboBox1.TabIndex = 3;
-            // 
             // Chon_chu_ky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -245,9 +247,9 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.piceditChu_ky.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,6 +273,6 @@
         private System.Windows.Forms.Button bt_dong;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.PictureEdit piceditChu_ky;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbBoxChu_ky;
     }
 }

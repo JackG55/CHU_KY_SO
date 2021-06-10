@@ -87,6 +87,8 @@
       <DependentUpon>Quan_ly_chu_ky.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect\connection.cs" />
+    <Compile Include="Connect\DTA.cs" />
+    <Compile Include="Connect\DTO.cs" />
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>

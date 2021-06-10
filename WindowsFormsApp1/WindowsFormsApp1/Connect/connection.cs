@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.Connect
 {
     public class connection
     {
-        public static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Quan_ly_van_ban;Integrated Security=True";
+        public static string connectionString = "Data Source=DESKTOP-MSHI2VU;Initial Catalog=Quan_ly_van_ban;Integrated Security=True";
         public static SqlConnection Getconnection()
         {
             SqlConnection con = new SqlConnection(connectionString);

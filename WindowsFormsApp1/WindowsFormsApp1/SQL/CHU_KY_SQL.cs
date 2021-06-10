@@ -89,7 +89,29 @@ namespace WindowsFormsApp1.SQL
         }
 
 
-        
+        /// <summary>
+        /// trả về thông tin của chữ ký của người sử dụng 
+        /// </summary>
+        /// <param name="ma_user"></param>
+        /// <param name="ma_chu_ky"></param>
+        /// <returns></returns>
+        public DataSet GetThongTin(string ma_user, string ma_chu_ky)
+        {
+            DataSet result = new DataSet();
+            string query = "LAY_THONG_TIN_USER";
+            string[] para;
+            para = new string[2];
+            para[0] = "@Ma_user";
+            para[1] = "@Ma_chu_ky";
+            object[] values;
+            values = new object[2];
+            values[0] = ma_user;
+            values[1] = ma_chu_ky;
+
+            result = connection.Excute_Sql_Return_DataSet(query, CommandType.StoredProcedure, para, values);
+            return result;
+
+        }
 
 
 
