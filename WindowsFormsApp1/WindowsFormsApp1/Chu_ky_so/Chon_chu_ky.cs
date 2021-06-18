@@ -19,6 +19,9 @@ namespace WindowsFormsApp1.Chu_ky_so
 
         int ma_user = 1;
 
+        public string rootfolder_anh = @"E:\Desktop\Thuc_tap_CNTT\Anh\1\Chu_ky\";
+        public string file_not_found = @"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\404.png";
+
         public Chon_chu_ky()
         {
             InitializeComponent();
@@ -39,8 +42,9 @@ namespace WindowsFormsApp1.Chu_ky_so
             cbBoxChu_ky.ValueMember = "Ma_chu_ky";
             int ma_chu_ky =Convert.ToInt32(cbBoxChu_ky.SelectedValue.ToString());
             string duong_dan_chu_ky = CHU_KY_SQL.Get_hinh_anh_dau_tien(ma_chu_ky);
-            Bitmap image = new Bitmap(@"E:\Desktop\Thuc_tap_CNTT\Anh\1\Chu_ky\" + duong_dan_chu_ky);
+            Bitmap image = new Bitmap(rootfolder_anh + duong_dan_chu_ky);
             piceditChu_ky.Image = image;
+            Hien_thi_thong_tin(ma_chu_ky);
 
             cbBoxChu_ky.SelectedValueChanged += cbBoxChu_ky_SelectedValueChanged;
         }
@@ -65,24 +69,29 @@ namespace WindowsFormsApp1.Chu_ky_so
             string duong_dan_chu_ky = CHU_KY_SQL.Get_duong_dan_chu_ky(ma_chu_ky);
             try
             {
-                Bitmap image = new Bitmap(@"E:\Desktop\Thuc_tap_CNTT\Anh\1\Chu_ky\" + duong_dan_chu_ky);
+                Bitmap image = new Bitmap(rootfolder_anh + duong_dan_chu_ky);
                 piceditChu_ky.Image = image;
             }
             catch
             {
-                Bitmap image = new Bitmap(@"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\404.png");
+                Bitmap image = new Bitmap(file_not_found);
                 piceditChu_ky.Image = image;
             }
 
 
             //hien thi thong tin
-            
+            Hien_thi_thong_tin(ma_chu_ky);
         }
 
 
         public void Hien_thi_thong_tin(int ma_chu_ky)
         {
+            DataSet a = new DataSet();
+            a = CHU_KY_SQL.GetThongTin(ma_user, ma_chu_ky);
 
+            lb_ten_chu_so_huu.Text = a.Tables[0].Rows[0]["Ten_user"].ToString();
+            lb_noi_cap.Text  = a.Tables[0].Rows[0]["Ten_co_quan"].ToString();
+            lb_thoi_gian.Text = a.Tables[0].Rows[0]["Thoi_gian_cap"].ToString() + " đến " + a.Tables[0].Rows[0]["Thoi_gian_het_han"].ToString();
         }
     }
 }
