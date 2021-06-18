@@ -10,10 +10,10 @@ namespace WindowsFormsApp1.SQL
 {
     class TAI_KHOAN_SQL:connection
     {
-        public DataSet Get_Tai_khoan(string ma_user)
+        public DataSet Get_Tai_khoan(int ma_user)
         {
             DataSet result = new DataSet();
-            result = connection.FillDataSet("SELECT * FROM dbo.TAI_KHOAN EXCEPT SELECT * FROM dbo.TAI_KHOAN WHERE Ma_user =  " + ma_user);
+            result = connection.FillDataSet("SELECT * FROM dbo.TAI_KHOAN EXCEPT SELECT * FROM dbo.TAI_KHOAN WHERE Ma_user =  '" + ma_user + "'");
             return result;
         }
     }
