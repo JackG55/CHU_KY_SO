@@ -23,7 +23,7 @@ namespace WindowsFormsApp1.Chu_ky_so
 
         CHU_KY_SQL CHU_KY_SQL = new CHU_KY_SQL();
         int status = 0;     //1 là sửa          //2 là tạo mới
-        string ma_user = "1";
+        int ma_user = 1;
 
 
         //fullimage size: width : 314   height: 214
@@ -130,7 +130,7 @@ namespace WindowsFormsApp1.Chu_ky_so
 
                     string sqlcmd = "SELECT MAX(Ma_chu_ky) FROM dbo.CHU_KY";
                     int ma_chu_ky = Convert.ToInt32(connection.docGiaTri(sqlcmd)) + 1;
-                    temp.Ma_chu_ky = ma_chu_ky.ToString();
+                    temp.Ma_chu_ky = ma_chu_ky;
 
                     temp.Ten_chu_ky = tbTen_mau.Text;
 
@@ -177,7 +177,7 @@ namespace WindowsFormsApp1.Chu_ky_so
             }
             else //chinh sua
             {
-                string ma_chu_ky = cbBoxTen_chu_ky.SelectedValue.ToString();
+                int ma_chu_ky = Convert.ToInt32(cbBoxTen_chu_ky.SelectedValue.ToString());
                 bool update = CHU_KY_SQL.Sua_Chu_ky(ma_chu_ky, tbTen_mau.Text);
                 if(update == true)
                 {
@@ -239,7 +239,7 @@ namespace WindowsFormsApp1.Chu_ky_so
             btnLoadAnh.Visible = false;
 
             //ma_chu_ky
-            string ma_chu_ky = cbBoxTen_chu_ky.SelectedValue.ToString();
+            int ma_chu_ky = Convert.ToInt32(cbBoxTen_chu_ky.SelectedValue.ToString());
 
             //hien thi check box
             int kieu_chu_ky = CHU_KY_SQL.Get_kieu_chu_ky(ma_chu_ky);
@@ -436,7 +436,7 @@ namespace WindowsFormsApp1.Chu_ky_so
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string ma_chu_ky = cbBoxTen_chu_ky.SelectedValue.ToString();
+            int ma_chu_ky = Convert.ToInt32(cbBoxTen_chu_ky.SelectedValue.ToString());
             bool xoa = CHU_KY_SQL.Xoa_Chu_ky(ma_chu_ky);
             if(xoa==true)
             {

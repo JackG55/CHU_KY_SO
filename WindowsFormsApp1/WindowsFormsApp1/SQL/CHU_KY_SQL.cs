@@ -22,10 +22,10 @@ namespace WindowsFormsApp1.SQL
         /// </summary>
         /// <param name="ma_user"></param>
         /// <returns></returns>
-        public DataSet Get_Chu_ky(string ma_user)
+        public DataSet Get_Chu_ky(int ma_user)
         {
             DataSet result = new DataSet();
-            result = connection.FillDataSet("SELECT * FROM dbo.CHU_KY WHERE Ma_user = " + ma_user);
+            result = connection.FillDataSet("SELECT * FROM dbo.CHU_KY WHERE Ma_user = '" + ma_user + "'");
             return result;
         }
 
@@ -35,10 +35,10 @@ namespace WindowsFormsApp1.SQL
         /// </summary>
         /// <param name="ma_chu_ky"></param>
         /// <returns></returns>
-        public int Get_kieu_chu_ky (string ma_chu_ky)
+        public int Get_kieu_chu_ky (int ma_chu_ky)
         {
             int result;
-            string sqlcmd = "SELECT Kieu_chu_ky FROM dbo.CHU_KY WHERE Ma_chu_ky = " + ma_chu_ky;
+            string sqlcmd = "SELECT Kieu_chu_ky FROM dbo.CHU_KY WHERE Ma_chu_ky = '" + ma_chu_ky + "'";
             result = Convert.ToInt32(connection.docGiaTri(sqlcmd));
             return result;
         }

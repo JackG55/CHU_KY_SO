@@ -9,8 +9,8 @@ namespace WindowsFormsApp1.Models
     class CHU_KY
     {
 
-        string ma_chu_ky;
-        string ma_user;
+        int ma_chu_ky;
+        int ma_user;
 
         DateTime Thoi_gian_cap;
         DateTime Thoi_gin_het_han;
@@ -23,8 +23,8 @@ namespace WindowsFormsApp1.Models
 
         int Kieu_chu_ky;
 
-        public string Ma_chu_ky { get => ma_chu_ky; set => ma_chu_ky = value; }
-        public string Ma_user { get => ma_user; set => ma_user = value; }
+        public int Ma_chu_ky { get => ma_chu_ky; set => ma_chu_ky = value; }
+        public int Ma_user { get => ma_user; set => ma_user = value; }
         public DateTime Thoi_gian_cap1 { get => Thoi_gian_cap; set => Thoi_gian_cap = value; }
         public DateTime Thoi_gin_het_han1 { get => Thoi_gin_het_han; set => Thoi_gin_het_han = value; }
         public string Duong_dan_chu_ky1 { get => Duong_dan_chu_ky; set => Duong_dan_chu_ky = value; }
@@ -38,7 +38,7 @@ namespace WindowsFormsApp1.Models
 
         }
 
-        public CHU_KY(string ma_chu_ky, string ma_user, DateTime thoi_gian_cap, DateTime thoi_gin_het_han, string duong_dan_chu_ky, string ten_chu_ky, string duong_dan_anh, int kieu_chu_ky)
+        public CHU_KY(int ma_chu_ky, int ma_user, DateTime thoi_gian_cap, DateTime thoi_gin_het_han, string duong_dan_chu_ky, string ten_chu_ky, string duong_dan_anh, int kieu_chu_ky)
         {
             this.Ma_chu_ky = ma_chu_ky;
             this.Ma_user = ma_user;
@@ -50,7 +50,7 @@ namespace WindowsFormsApp1.Models
             Kieu_chu_ky1 = kieu_chu_ky;
         }
 
-        public CHU_KY(string ma_chu_ky, string ten_chu_ky)
+        public CHU_KY(int ma_chu_ky, string ten_chu_ky)
         {
             this.Ma_chu_ky = ma_chu_ky;
             this.Ten_chu_ky = ten_chu_ky;

@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.Van_ban
         }
 
 
-        string ma_user = "1";
+        int ma_user = 1;
 
         bool mouseButtonPressed = false;
         PdfDocumentPosition startPosition;

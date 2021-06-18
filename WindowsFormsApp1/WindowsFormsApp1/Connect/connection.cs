@@ -325,6 +325,40 @@ namespace WindowsFormsApp1.Connect
             return efftectRecord;
         }
 
+
+        public static DataSet Excute_Sql_Return_DataSet(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn = Getconnection();
+            conn.Open();
+            DataSet efftectRecord = new DataSet();
+            SqlCommand sqlcmd = new SqlCommand();
+            sqlcmd.CommandText = strQuery;
+            sqlcmd.Connection = conn;
+            sqlcmd.CommandType = cmdtype;
+
+            SqlParameter sqlpara;
+            for (int i = 0; i < para.Length; i++)
+            {
+                sqlpara = new SqlParameter();
+                sqlpara.ParameterName = para[i];
+                sqlpara.SqlValue = values[i];
+                sqlcmd.Parameters.Add(sqlpara);
+            }
+            try
+            {
+                SqlDataAdapter adp = new SqlDataAdapter(sqlcmd);
+                adp.Fill(efftectRecord);
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
+            return efftectRecord;
+        }
+
+
         public static void Excute_non_return_Querry(string strQuery, CommandType cmdtype, string[] para, object[] values)
         {
             SqlConnection conn = new SqlConnection();

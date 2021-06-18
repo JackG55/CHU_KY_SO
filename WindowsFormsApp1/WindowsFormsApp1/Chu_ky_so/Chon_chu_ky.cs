@@ -17,7 +17,7 @@ namespace WindowsFormsApp1.Chu_ky_so
 
         CHU_KY_SQL CHU_KY_SQL = new CHU_KY_SQL();
 
-        string ma_user = "1";
+        int ma_user = 1;
 
         public Chon_chu_ky()
         {
@@ -37,7 +37,10 @@ namespace WindowsFormsApp1.Chu_ky_so
             cbBoxChu_ky.DataSource = CHU_KY_SQL.Get_Chu_ky(ma_user).Tables[0];
             cbBoxChu_ky.DisplayMember = "Ten_chu_ky";
             cbBoxChu_ky.ValueMember = "Ma_chu_ky";
-
+            int ma_chu_ky =Convert.ToInt32(cbBoxChu_ky.SelectedValue.ToString());
+            string duong_dan_chu_ky = CHU_KY_SQL.Get_hinh_anh_dau_tien(ma_chu_ky);
+            Bitmap image = new Bitmap(@"E:\Desktop\Thuc_tap_CNTT\Anh\1\Chu_ky\" + duong_dan_chu_ky);
+            piceditChu_ky.Image = image;
 
             cbBoxChu_ky.SelectedValueChanged += cbBoxChu_ky_SelectedValueChanged;
         }
@@ -56,7 +59,7 @@ namespace WindowsFormsApp1.Chu_ky_so
         {
 
             //ma_chu_ky
-            string ma_chu_ky = cbBoxChu_ky.SelectedValue.ToString();
+            int ma_chu_ky =Convert.ToInt32(cbBoxChu_ky.SelectedValue.ToString());
 
             //hien thi hinh anh
             string duong_dan_chu_ky = CHU_KY_SQL.Get_duong_dan_chu_ky(ma_chu_ky);
@@ -73,6 +76,12 @@ namespace WindowsFormsApp1.Chu_ky_so
 
 
             //hien thi thong tin
+            
+        }
+
+
+        public void Hien_thi_thong_tin(int ma_chu_ky)
+        {
 
         }
     }
