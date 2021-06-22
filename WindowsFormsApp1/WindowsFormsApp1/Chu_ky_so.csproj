@@ -191,11 +191,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WindowsFormsApp1.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="WindowsFormsApp1.csproj.user" />
     <None Include="Resources\tải xuống.png" />
     <None Include="Resources\1_wvkn.jpg" />
     <Content Include="Data\Test.txt" />
@@ -211,6 +213,15 @@
     </PackageReference>
     <PackageReference Include="iTextSharp">
       <Version>5.5.13.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Excel">
+      <Version>15.0.4795.1000</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.PowerPoint">
+      <Version>15.0.4420.1017</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Word">
+      <Version>15.0.4797.1003</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
