@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
-            this.txtFile_start = new System.Windows.Forms.TextBox();
-            this.txtFile_end = new System.Windows.Forms.TextBox();
-            this.btnChuyendoi = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnChon_end = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnChon_end = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChuyendoi = new DevExpress.XtraEditors.SimpleButton();
+            this.txtFile_end = new System.Windows.Forms.TextBox();
+            this.txtFile_start = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -73,17 +73,6 @@
             this.splitContainer1.SplitterDistance = 130;
             this.splitContainer1.TabIndex = 0;
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureEdit1.EditValue = global::WindowsFormsApp1.Properties.Resources._1_wvkn;
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.StretchHorizontal;
-            this.pictureEdit1.Size = new System.Drawing.Size(460, 130);
-            this.pictureEdit1.TabIndex = 0;
-            // 
             // pictureEdit2
             // 
             this.pictureEdit2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -95,37 +84,32 @@
             this.pictureEdit2.Size = new System.Drawing.Size(173, 130);
             this.pictureEdit2.TabIndex = 1;
             // 
-            // txtFile_start
+            // pictureEdit1
             // 
-            this.txtFile_start.Location = new System.Drawing.Point(29, 78);
-            this.txtFile_start.Name = "txtFile_start";
-            this.txtFile_start.ReadOnly = true;
-            this.txtFile_start.Size = new System.Drawing.Size(554, 23);
-            this.txtFile_start.TabIndex = 0;
+            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureEdit1.EditValue = global::WindowsFormsApp1.Properties.Resources._1_wvkn;
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.StretchHorizontal;
+            this.pictureEdit1.Size = new System.Drawing.Size(460, 130);
+            this.pictureEdit1.TabIndex = 0;
             // 
-            // txtFile_end
+            // labelControl2
             // 
-            this.txtFile_end.Location = new System.Drawing.Point(29, 154);
-            this.txtFile_end.Name = "txtFile_end";
-            this.txtFile_end.Size = new System.Drawing.Size(554, 23);
-            this.txtFile_end.TabIndex = 1;
+            this.labelControl2.Location = new System.Drawing.Point(29, 131);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(160, 17);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "Nơi lưu sau khi chuyển đổi";
             // 
-            // btnChuyendoi
+            // labelControl1
             // 
-            this.btnChuyendoi.Location = new System.Drawing.Point(415, 220);
-            this.btnChuyendoi.Name = "btnChuyendoi";
-            this.btnChuyendoi.Size = new System.Drawing.Size(115, 48);
-            this.btnChuyendoi.TabIndex = 2;
-            this.btnChuyendoi.Text = "Chuyển đổi";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(645, 220);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(115, 48);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "Đóng";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.labelControl1.Location = new System.Drawing.Point(29, 55);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(168, 17);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = "Đường dẫn cần chuyển đổi";
             // 
             // btnChon_end
             // 
@@ -136,21 +120,38 @@
             this.btnChon_end.Text = "Chọn";
             this.btnChon_end.Click += new System.EventHandler(this.btnChon_end_Click);
             // 
-            // labelControl1
+            // simpleButton2
             // 
-            this.labelControl1.Location = new System.Drawing.Point(29, 55);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(168, 17);
-            this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Đường dẫn cần chuyển đổi";
+            this.simpleButton2.Location = new System.Drawing.Point(645, 220);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(115, 48);
+            this.simpleButton2.TabIndex = 3;
+            this.simpleButton2.Text = "Đóng";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // labelControl2
+            // btnChuyendoi
             // 
-            this.labelControl2.Location = new System.Drawing.Point(29, 131);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(160, 17);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Nơi lưu sau khi chuyển đổi";
+            this.btnChuyendoi.Location = new System.Drawing.Point(415, 220);
+            this.btnChuyendoi.Name = "btnChuyendoi";
+            this.btnChuyendoi.Size = new System.Drawing.Size(115, 48);
+            this.btnChuyendoi.TabIndex = 2;
+            this.btnChuyendoi.Text = "Chuyển đổi";
+            this.btnChuyendoi.Click += new System.EventHandler(this.btnChuyendoi_Click);
+            // 
+            // txtFile_end
+            // 
+            this.txtFile_end.Location = new System.Drawing.Point(29, 154);
+            this.txtFile_end.Name = "txtFile_end";
+            this.txtFile_end.Size = new System.Drawing.Size(554, 23);
+            this.txtFile_end.TabIndex = 1;
+            // 
+            // txtFile_start
+            // 
+            this.txtFile_start.Location = new System.Drawing.Point(29, 78);
+            this.txtFile_start.Name = "txtFile_start";
+            this.txtFile_start.ReadOnly = true;
+            this.txtFile_start.Size = new System.Drawing.Size(554, 23);
+            this.txtFile_start.TabIndex = 0;
             // 
             // Chuyen_doi
             // 
@@ -165,8 +166,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

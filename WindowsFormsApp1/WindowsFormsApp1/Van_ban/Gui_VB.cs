@@ -78,7 +78,7 @@ namespace WindowsFormsApp1.Van_ban
                 }
                 else
                 {
-                    MessageBox.Show(Chon_chu_ky.hinh_anh);
+                   // MessageBox.Show(Chon_chu_ky.hinh_anh);
                     Bitmap bitmap = new Bitmap(rootfolder_anh + Chon_chu_ky.hinh_anh);
 
                     DrawImage(bitmap, Chon_chu_ky.newFileName);
@@ -113,7 +113,7 @@ namespace WindowsFormsApp1.Van_ban
 
 
         }
-        async void LoadPDFFile(string pdf_url)
+        public async void LoadPDFFile(string pdf_url)
         {
             using (WebClient client = new WebClient())
             {
@@ -122,7 +122,20 @@ namespace WindowsFormsApp1.Van_ban
                 using (MemoryStream ms = new MemoryStream(data))
                 {
                     pdfViewer1.LoadDocument(ms);
+                    pdfViewer1.MouseDown += pdfViewer1_MouseDown;
+                    pdfViewer1.MouseMove += pdfViewer1_MouseMove;
+                    pdfViewer1.MouseUp += pdfViewer1_MouseUp;
+                    pdfViewer1.Paint += pdfViewer1_Paint;
+
+                    //hien thanh ribbon
+                    ribbon_pdf.Visible = true;
+
+                    //hien ten file dinh kem
+                    tb_dinh_kem.Visible = true;
+                    tb_dinh_kem.Text = fileName;
+
                     fileName = pdf_url;
+
                 }
             }
         }
@@ -141,7 +154,7 @@ namespace WindowsFormsApp1.Van_ban
                     float height = (float)Math.Abs(startPosition.Point.Y - endPosition.Point.Y);
 
                     PdfRectangle cropbox = page.CropBox;
-                    MessageBox.Show(cropbox.Height.ToString());
+                  //  MessageBox.Show(cropbox.Height.ToString());
                     float Y = (float)(cropbox.Height - startPosition.Point.Y);
 
                     RectangleF rec = new RectangleF((float)startPosition.Point.X, Y, width, height);
@@ -167,7 +180,7 @@ namespace WindowsFormsApp1.Van_ban
 
             //fileName = null;
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Pdf Files|*.pdf";
+            dlg.Filter = "Pdf Files|*.pdf|Docx Files|*.docx|Excel Files|*.xlsx|PowerPoint File|*.pptx";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 fileName = dlg.FileName;
@@ -192,7 +205,9 @@ namespace WindowsFormsApp1.Van_ban
                 {
                     MessageBox.Show("Bạn cần phải chuyển thành file pdf trước","File không đúng định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Chuyen_doi m = new Chuyen_doi(fileName);
-                    m.Show();
+                    m.ShowDialog();
+
+                    LoadPDFFile(Chuyen_doi.File_Moi);
                 }
                 else
                 {
