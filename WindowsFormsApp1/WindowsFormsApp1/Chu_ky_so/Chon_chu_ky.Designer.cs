@@ -46,6 +46,8 @@
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.bt_ky = new System.Windows.Forms.Button();
             this.bt_dong = new System.Windows.Forms.Button();
+            this.txtNoi_luu = new DevExpress.XtraEditors.TextEdit();
+            this.btn_chon_duong_dan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -54,6 +56,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.piceditChu_ky.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoi_luu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1094, 91);
+            this.panel1.Size = new System.Drawing.Size(1126, 91);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -77,13 +80,15 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.btn_chon_duong_dan);
+            this.groupControl1.Controls.Add(this.txtNoi_luu);
             this.groupControl1.Controls.Add(this.cbBoxChu_ky);
             this.groupControl1.Controls.Add(this.groupControl2);
             this.groupControl1.Controls.Add(this.pictureEdit1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 91);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1094, 402);
+            this.groupControl1.Size = new System.Drawing.Size(1126, 492);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Chọn chữ ký";
             // 
@@ -205,7 +210,7 @@
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(993, 37);
+            this.pictureEdit1.Location = new System.Drawing.Point(982, 35);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Size = new System.Drawing.Size(36, 29);
@@ -213,7 +218,7 @@
             // 
             // bt_ky
             // 
-            this.bt_ky.Location = new System.Drawing.Point(91, 512);
+            this.bt_ky.Location = new System.Drawing.Point(91, 611);
             this.bt_ky.Name = "bt_ky";
             this.bt_ky.Size = new System.Drawing.Size(124, 55);
             this.bt_ky.TabIndex = 2;
@@ -223,7 +228,7 @@
             // 
             // bt_dong
             // 
-            this.bt_dong.Location = new System.Drawing.Point(804, 512);
+            this.bt_dong.Location = new System.Drawing.Point(819, 611);
             this.bt_dong.Name = "bt_dong";
             this.bt_dong.Size = new System.Drawing.Size(124, 55);
             this.bt_dong.TabIndex = 3;
@@ -231,11 +236,28 @@
             this.bt_dong.UseVisualStyleBackColor = true;
             this.bt_dong.Click += new System.EventHandler(this.bt_dong_Click);
             // 
+            // txtNoi_luu
+            // 
+            this.txtNoi_luu.Location = new System.Drawing.Point(91, 416);
+            this.txtNoi_luu.Name = "txtNoi_luu";
+            this.txtNoi_luu.Size = new System.Drawing.Size(837, 22);
+            this.txtNoi_luu.TabIndex = 4;
+            // 
+            // btn_chon_duong_dan
+            // 
+            this.btn_chon_duong_dan.Location = new System.Drawing.Point(956, 415);
+            this.btn_chon_duong_dan.Name = "btn_chon_duong_dan";
+            this.btn_chon_duong_dan.Size = new System.Drawing.Size(75, 24);
+            this.btn_chon_duong_dan.TabIndex = 4;
+            this.btn_chon_duong_dan.Text = "...";
+            this.btn_chon_duong_dan.UseVisualStyleBackColor = true;
+            this.btn_chon_duong_dan.Click += new System.EventHandler(this.btn_chon_duong_dan_Click);
+            // 
             // Chon_chu_ky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 615);
+            this.ClientSize = new System.Drawing.Size(1126, 704);
             this.Controls.Add(this.bt_dong);
             this.Controls.Add(this.bt_ky);
             this.Controls.Add(this.groupControl1);
@@ -250,6 +272,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.piceditChu_ky.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoi_luu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,5 +297,7 @@
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.PictureEdit piceditChu_ky;
         private System.Windows.Forms.ComboBox cbBoxChu_ky;
+        private System.Windows.Forms.Button btn_chon_duong_dan;
+        private DevExpress.XtraEditors.TextEdit txtNoi_luu;
     }
 }

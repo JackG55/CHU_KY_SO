@@ -27,12 +27,15 @@ namespace WindowsFormsApp1.Van_ban
         }
 
 
+
+        public string rootfolder_anh = @"E:\Desktop\Thuc_tap_CNTT\Anh\1\Chu_ky\";
+
         int ma_user = 1;
 
         bool mouseButtonPressed = false;
         PdfDocumentPosition startPosition;
         PdfDocumentPosition endPosition;
-        public string fileName = null;
+        public static string fileName = null;
 
         void pdfViewer1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -67,6 +70,21 @@ namespace WindowsFormsApp1.Van_ban
                 //goi event load ra chu ky
                 Chon_chu_ky m = new Chon_chu_ky();
                 m.ShowDialog();
+
+                //vẽ chữ ký
+                if(Chon_chu_ky.hinh_anh == "")
+                {
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(Chon_chu_ky.hinh_anh);
+                    Bitmap bitmap = new Bitmap(rootfolder_anh + Chon_chu_ky.hinh_anh);
+
+                    DrawImage(bitmap, Chon_chu_ky.newFileName);
+
+                }
+
             }
 
 
@@ -110,12 +128,12 @@ namespace WindowsFormsApp1.Van_ban
         }
 
 
-        public void DrawImage(DevExpress.Pdf.PdfPage page, Bitmap image)
+        public void DrawImage(Bitmap image, string noi_luu)
         {
             using (PdfDocumentProcessor documentProcessor = new PdfDocumentProcessor())
             {
                 documentProcessor.LoadDocument(fileName);
-               
+                DevExpress.Pdf.PdfPage page = documentProcessor.Document.Pages[pdfViewer1.CurrentPageNumber - 1];
                 using (PdfGraphics graphics = documentProcessor.CreateGraphics())
                 {
                     
@@ -134,8 +152,8 @@ namespace WindowsFormsApp1.Van_ban
                 }
 
 
-                documentProcessor.SaveDocument(@"E:\Desktop\Thuc_tap_CNTT\result.pdf");
-                //LoadPDFFile(resultFileName);
+                documentProcessor.SaveDocument(noi_luu);
+                LoadPDFFile(noi_luu);
             }
         }
 

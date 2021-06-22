@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using WindowsFormsApp1.SQL;
+using WindowsFormsApp1.Van_ban;
+using ceTe.DynamicPDF.PageElements;
+using System.IO;
 
 namespace WindowsFormsApp1.Chu_ky_so
 {
@@ -21,6 +24,11 @@ namespace WindowsFormsApp1.Chu_ky_so
 
         public string rootfolder_anh = @"E:\Desktop\Thuc_tap_CNTT\Anh\1\Chu_ky\";
         public string file_not_found = @"E:\Code\Github\CHU_KY_SO\WindowsFormsApp1\WindowsFormsApp1\Resources\404.png";
+
+        //public static Bitmap a = new Bitmap(piceditChu_ky.Image);
+
+        public static string hinh_anh = "";
+        public static string newFileName = "";
 
         public Chon_chu_ky()
         {
@@ -35,6 +43,17 @@ namespace WindowsFormsApp1.Chu_ky_so
         /// </summary>
         private void InitComboBox()
         {
+            //reset
+            newFileName = "";
+            hinh_anh = "";
+
+
+            //nơi lưu 
+            var result = System.IO.Path.ChangeExtension(Gui_VB.fileName, ".signed.pdf");
+            txtNoi_luu.Text = result;
+            newFileName = result;
+
+            //khởi tạo combobox
             cbBoxChu_ky.SelectedValueChanged -= cbBoxChu_ky_SelectedValueChanged;
 
             cbBoxChu_ky.DataSource = CHU_KY_SQL.Get_Chu_ky(ma_user).Tables[0];
@@ -57,6 +76,9 @@ namespace WindowsFormsApp1.Chu_ky_so
         private void bt_ky_Click(object sender, EventArgs e)
         {
             //luu anh vao bien static
+            hinh_anh = CHU_KY_SQL.Get_duong_dan_chu_ky(Convert.ToInt32(cbBoxChu_ky.SelectedValue.ToString()));
+
+            this.Close();
         }
 
         private void cbBoxChu_ky_SelectedValueChanged(object sender, EventArgs e)
@@ -92,6 +114,11 @@ namespace WindowsFormsApp1.Chu_ky_so
             lb_ten_chu_so_huu.Text = a.Tables[0].Rows[0]["Ten_user"].ToString();
             lb_noi_cap.Text  = a.Tables[0].Rows[0]["Ten_co_quan"].ToString();
             lb_thoi_gian.Text = a.Tables[0].Rows[0]["Thoi_gian_cap"].ToString() + " đến " + a.Tables[0].Rows[0]["Thoi_gian_het_han"].ToString();
+        }
+
+        private void btn_chon_duong_dan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
